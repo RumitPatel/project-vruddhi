@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Project Vruddhi</string>
+
+    <string name="welcome_to_niramay">Welcome to Niramay</string>
+    <string name="dedicated_to_improve_">Dedicated to improve health and well-being of people of India</string>
+    <string name="login">Log in</string>
+    <string name="log_into_account">Log into account</string>
+    <string name="email">Email</string>
+    <string name="email_hint">example@example.com</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter password</string>
+    <string name="forgot_password_">Forgot Password?</string>
+    <string name="by_using_niramay">By using Niramay, you agree to the</string>
+    <string name="terms_and_privacy_policy">Terms and Privacy Policy</string>
+    <string name="reset_password">Reset password</string>
+    <string name="reset_password_title">We will email you\na link to reset your password.</string>
+    <string name="send">Send</string>
+    <string name="back_to_login">Back to login</string>
+
+
+
+
+
+
+
+
+    <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>
+</resources>

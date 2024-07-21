@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="toolbar_padding">@dimen/_10sdp</dimen>
+    <dimen name="toolbar_title_text_size">@dimen/_16sdp</dimen>
+    <dimen name="back_arrow_h_w">@dimen/_40sdp</dimen>
+    <dimen name="back_arrow_padding">@dimen/_8sdp</dimen>
+    <dimen name="form_margin_top">@dimen/_6sdp</dimen>
+    <dimen name="form_text_size">@dimen/_14sdp</dimen>
+</resources>

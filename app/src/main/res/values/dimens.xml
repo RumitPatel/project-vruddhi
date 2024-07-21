@@ -7,4 +7,7 @@
     <dimen name="back_arrow_padding">@dimen/_8sdp</dimen>
     <dimen name="form_margin_top">@dimen/_6sdp</dimen>
     <dimen name="form_text_size">@dimen/_14sdp</dimen>
+    <dimen name="home_icon_h_w">@dimen/_50sdp</dimen>
+    <dimen name="home_icon_padding">@dimen/_4sdp</dimen>
+    <dimen name="home_icon_text_size">@dimen/_14sdp</dimen>
 </resources>

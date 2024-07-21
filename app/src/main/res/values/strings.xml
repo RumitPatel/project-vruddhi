@@ -16,6 +16,11 @@
     <string name="reset_password_title">We will email you\na link to reset your password.</string>
     <string name="send">Send</string>
     <string name="back_to_login">Back to login</string>
+    <string name="pregnant_woman">Pregnant Woman</string>
+    <string name="lbw_child">LBW Child</string>
+    <string name="sam_child">SAM Child</string>
+    <string name="camp">Camp</string>
+    <string name="dashboard">Dashboard</string>
 
 
 

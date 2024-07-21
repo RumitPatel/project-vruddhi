@@ -28,6 +28,7 @@
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.ResetPasswordActivity" />
         <activity android:name=".activities.ResetPasswordSentActivity" />
+        <activity android:name=".activities.HomeActivity" />
     </application>
 
 </manifest>

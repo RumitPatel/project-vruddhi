@@ -10,13 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.project.vruddhi.R
 
 
-class LoginActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_home)
 
         initComponents()
 
@@ -28,15 +28,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        findViewById<ImageView?>(R.id.ivBack).setOnClickListener {
-            finish()
-        }
-        findViewById<TextView?>(R.id.tvForgotPassword).setOnClickListener {
-            startActivity(Intent(mContext, ResetPasswordActivity::class.java))
-        }
 
-        findViewById<Button?>(R.id.btnLogin).setOnClickListener {
-            startActivity(Intent(mContext, HomeActivity::class.java))
-        }
     }
 }

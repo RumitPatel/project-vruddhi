@@ -1,20 +1,21 @@
-package com.project.vruddhi
+package com.project.vruddhi.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.project.vruddhi.activities.LoginActivity
+import com.project.vruddhi.R
 
 
-class MainActivity : AppCompatActivity() {
+class ResetPasswordActivity : AppCompatActivity() {
 
     private lateinit var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_reset_password)
 
         initComponents()
 
@@ -26,8 +27,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        findViewById<Button?>(R.id.btnLogin).setOnClickListener {
-            startActivity(Intent(mContext, LoginActivity::class.java))
+        findViewById<ImageView?>(R.id.ivBack).setOnClickListener {
+            finish()
+        }
+
+        findViewById<Button?>(R.id.btnSend).setOnClickListener {
+            startActivity(Intent(mContext, ResetPasswordSentActivity::class.java))
         }
     }
 }

@@ -25,6 +25,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.ResetPasswordActivity" />
+        <activity android:name=".activities.ResetPasswordSentActivity" />
     </application>
 
 </manifest>

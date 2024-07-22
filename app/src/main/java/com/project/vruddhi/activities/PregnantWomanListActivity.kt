@@ -1,6 +1,7 @@
 package com.project.vruddhi.activities
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
@@ -33,6 +34,7 @@ class PregnantWomanListActivity : BaseActivity() {
 
         val pregnantWomanAdapter = PregnantWomanAdapter(getTempPatient()) {
             val patientInfo = it
+            startActivity(Intent(mContext, PregnantWomanScreeningActivity::class.java))
         }
         binding.rv.adapter = pregnantWomanAdapter
     }

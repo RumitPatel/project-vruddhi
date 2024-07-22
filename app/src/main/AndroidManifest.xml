@@ -30,6 +30,7 @@
         <activity android:name=".activities.ResetPasswordSentActivity" />
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.PregnantWomanListActivity" />
+        <activity android:name=".activities.PregnantWomanScreeningActivity" />
     </application>
 
 </manifest>

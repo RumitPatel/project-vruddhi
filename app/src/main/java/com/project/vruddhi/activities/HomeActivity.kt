@@ -3,14 +3,12 @@ package com.project.vruddhi.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.LinearLayout
+import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     private lateinit var mContext: Context
 
@@ -28,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-
+        findViewById<LinearLayout?>(R.id.llPregnantWoman).setOnClickListener {
+            startActivity(Intent(mContext, PregnantWomanListActivity::class.java))
+        }
     }
 }

@@ -27,11 +27,13 @@
 
 
     <LinearLayout
+        android:id="@+id/llPregnantWoman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/home_icon_ll_padding">
 
         <ImageView
             android:layout_width="@dimen/home_icon_h_w"
@@ -58,14 +60,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/home_icon_ll_padding">
 
             <ImageView
                 android:layout_width="@dimen/home_icon_h_w"
                 android:layout_height="@dimen/home_icon_h_w"
                 android:layout_margin="@dimen/home_icon_padding"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/pregnant_woman" />
+                app:srcCompat="@drawable/lbw_child" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,14 +83,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/home_icon_ll_padding">
 
             <ImageView
                 android:layout_width="@dimen/home_icon_h_w"
                 android:layout_height="@dimen/home_icon_h_w"
                 android:layout_margin="@dimen/home_icon_padding"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/pregnant_woman" />
+                app:srcCompat="@drawable/sam_child" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -108,14 +112,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/home_icon_ll_padding">
 
             <ImageView
                 android:layout_width="@dimen/home_icon_h_w"
                 android:layout_height="@dimen/home_icon_h_w"
                 android:layout_margin="@dimen/home_icon_padding"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/pregnant_woman" />
+                app:srcCompat="@drawable/camp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,14 +135,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/home_icon_ll_padding">
 
             <ImageView
                 android:layout_width="@dimen/home_icon_h_w"
                 android:layout_height="@dimen/home_icon_h_w"
                 android:layout_margin="@dimen/home_icon_padding"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/pregnant_woman" />
+                app:srcCompat="@drawable/dashboard" />
 
             <TextView
                 android:layout_width="wrap_content"

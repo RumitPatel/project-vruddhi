@@ -21,6 +21,7 @@
     <string name="sam_child">SAM Child</string>
     <string name="camp">Camp</string>
     <string name="dashboard">Dashboard</string>
+    <string name="search">Search</string>
 
 
 
@@ -30,4 +31,7 @@
 
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>
+    <string name="temp_string_2">Patient 1: Meenaben parmar</string>
+    <string name="temp_string_3">32 years</string>
+    <string name="temp_string_4">• Rampur</string>
 </resources>

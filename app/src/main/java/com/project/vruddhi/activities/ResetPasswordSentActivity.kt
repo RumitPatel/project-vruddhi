@@ -5,12 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
-import com.project.vruddhi.MainActivity
+import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
 
 
-class ResetPasswordSentActivity : AppCompatActivity() {
+class ResetPasswordSentActivity : BaseActivity() {
 
     private lateinit var mContext: Context
 
@@ -33,7 +32,12 @@ class ResetPasswordSentActivity : AppCompatActivity() {
         }
 
         findViewById<Button?>(R.id.btnBackToLogin).setOnClickListener {
-            startActivity(Intent(mContext, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+            startActivity(
+                Intent(
+                    mContext,
+                    MainActivity::class.java
+                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            )
         }
     }
 }

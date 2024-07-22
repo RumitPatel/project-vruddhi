@@ -1,14 +1,14 @@
-package com.project.vruddhi
+package com.project.vruddhi.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
-import com.project.vruddhi.activities.LoginActivity
+import com.project.vruddhi.BaseActivity
+import com.project.vruddhi.R
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var mContext: Context
 

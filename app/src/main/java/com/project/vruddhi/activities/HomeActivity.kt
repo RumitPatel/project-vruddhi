@@ -1,20 +1,20 @@
-package com.project.vruddhi
+package com.project.vruddhi.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
-import com.project.vruddhi.activities.LoginActivity
+import android.widget.LinearLayout
+import com.project.vruddhi.BaseActivity
+import com.project.vruddhi.R
 
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     private lateinit var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
 
         initComponents()
 
@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        findViewById<Button?>(R.id.btnLogin).setOnClickListener {
-            startActivity(Intent(mContext, LoginActivity::class.java))
+        findViewById<LinearLayout?>(R.id.llPregnantWoman).setOnClickListener {
+            startActivity(Intent(mContext, PregnantWomanListActivity::class.java))
         }
     }
 }

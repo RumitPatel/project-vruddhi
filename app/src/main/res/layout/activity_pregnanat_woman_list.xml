@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/toolbar_padding">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/back_arrow_h_w"
+                android:layout_height="@dimen/back_arrow_h_w"
+                android:contentDescription="@null"
+                android:padding="@dimen/back_arrow_padding"
+                app:srcCompat="@drawable/arrow_back" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/pregnant_woman"
+                android:textColor="@color/black"
+                android:textSize="@dimen/toolbar_title_text_size"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:gravity="center_vertical">
+
+            <EditText
+                style="@style/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/search"
+                android:hint="@string/search"
+                android:textSize="@dimen/form_text_size" />
+
+            <ImageView
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/filter" />
+        </TableRow>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_pregnant_woman_list" />
+
+    </LinearLayout>
+</layout>

@@ -1,21 +1,22 @@
 package com.project.vruddhi.activities
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
+import androidx.databinding.DataBindingUtil
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
+import com.project.vruddhi.databinding.ActivityPregnanatWomanScreeningBinding
 
 
-class ResetPasswordActivity : BaseActivity() {
+class PregnantWomanScreeningActivity : BaseActivity() {
 
     private lateinit var mContext: Context
+    private lateinit var binding: ActivityPregnanatWomanScreeningBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reset_password)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_pregnanat_woman_screening)
 
         initComponents()
 
@@ -24,15 +25,13 @@ class ResetPasswordActivity : BaseActivity() {
     private fun initComponents() {
         mContext = this
         setListeners()
+
+
     }
 
     private fun setListeners() {
         findViewById<ImageView?>(R.id.ivBack).setOnClickListener {
             finish()
-        }
-
-        findViewById<Button?>(R.id.btnSend).setOnClickListener {
-            startActivity(Intent(mContext, ResetPasswordSentActivity::class.java))
         }
     }
 }

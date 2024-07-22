@@ -16,6 +16,25 @@
     <string name="reset_password_title">We will email you\na link to reset your password.</string>
     <string name="send">Send</string>
     <string name="back_to_login">Back to login</string>
+    <string name="pregnant_woman">Pregnant Woman</string>
+    <string name="lbw_child">LBW Child</string>
+    <string name="sam_child">SAM Child</string>
+    <string name="camp">Camp</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="search">Search</string>
+    <string name="next">Next</string>
+    <string name="name">Name</string>
+    <string name="husband_name">Husband Name</string>
+    <string name="full_name">Full Name</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="date_of_birth_hint">DD/MM/YYYY</string>
+    <string name="age_in_years">Age in years</string>
+    <string name="village">Village</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="date_of_lmp">Date of LMP</string>
+    <string name="current_month_of_pregnancy">Current Month of Pregnancy</string>
+    <string name="height_in_cm">Height in cm</string>
+    <string name="weight_in_kg">weight_in_kg</string>
 
 
 
@@ -25,4 +44,7 @@
 
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>
+    <string name="temp_string_2">Patient 1: Meenaben parmar</string>
+    <string name="temp_string_3">32 years</string>
+    <string name="temp_string_4">• Rampur</string>
 </resources>

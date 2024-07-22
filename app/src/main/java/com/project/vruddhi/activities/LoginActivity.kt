@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private lateinit var mContext: Context
 
@@ -33,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
         }
         findViewById<TextView?>(R.id.tvForgotPassword).setOnClickListener {
             startActivity(Intent(mContext, ResetPasswordActivity::class.java))
+        }
+
+        findViewById<Button?>(R.id.btnLogin).setOnClickListener {
+            startActivity(Intent(mContext, HomeActivity::class.java))
         }
     }
 }

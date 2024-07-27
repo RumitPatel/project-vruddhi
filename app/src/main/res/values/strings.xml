@@ -35,6 +35,10 @@
     <string name="current_month_of_pregnancy">Current Month of Pregnancy</string>
     <string name="height_in_cm">Height in cm</string>
     <string name="weight_in_kg">weight_in_kg</string>
+    <string name="screening">Screening</string>
+    <string name="registration">Registration</string>
+    <string name="services">Services</string>
+    <string name="exit">Exit</string>
 
 
 

@@ -39,12 +39,17 @@
     <string name="registration">Registration</string>
     <string name="services">Services</string>
     <string name="exit">Exit</string>
-
-
-
-
-
-
+    <string name="number_of_pregnancy">Number of Pregnancy</string>
+    <string name="including_the_present_pregnancy">including the present pregnancy</string>
+    <string name="number_of_live_child">Number of Live Child</string>
+    <string name="number_of_abortion">Number of Abortion</string>
+    <string name="education_of_mother">Education of Mother</string>
+    <string name="occupation_of_mother">Occupation of Mother</string>
+    <string name="any_illness">Any illness</string>
+    <string name="illness_note">illness Note</string>
+    <string name="registered_with_anm_govt_hospital">Registered with ANM/Govt Hospital for ANC?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>

@@ -7,17 +7,18 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
-import com.project.vruddhi.databinding.ActivityPregnanatWomanScreeningBinding
+import com.project.vruddhi.databinding.ActivityPregnanatWomanRegistrationBinding
 
 
-class PregnantWomanScreeningActivity : BaseActivity() {
+class PregnantWomanRegistrationActivity : BaseActivity() {
 
     private lateinit var mContext: Context
-    private lateinit var binding: ActivityPregnanatWomanScreeningBinding
+    private lateinit var binding: ActivityPregnanatWomanRegistrationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_pregnanat_woman_screening)
+        binding =
+            DataBindingUtil.setContentView(this, R.layout.activity_pregnanat_woman_registration)
 
         initComponents()
 
@@ -34,7 +35,7 @@ class PregnantWomanScreeningActivity : BaseActivity() {
             finish()
         }
         binding.btnNext.setOnClickListener {
-            startActivity(Intent(mContext, PregnantWomanRegistrationActivity::class.java))
+            startActivity(Intent(mContext, PregnantWomanServicesActivity::class.java))
         }
     }
 
@@ -42,9 +43,16 @@ class PregnantWomanScreeningActivity : BaseActivity() {
         binding.includeProgress.tvScreening.setTextColor(
             ContextCompat.getColor(
                 mContext,
+                R.color.black
+            )
+        )
+        binding.includeProgress.ivRoundScreening.setImageResource(R.drawable.round_green)
+        binding.includeProgress.tvRegistration.setTextColor(
+            ContextCompat.getColor(
+                mContext,
                 R.color.colorPrimary
             )
         )
-        binding.includeProgress.ivRoundScreening.setImageResource(R.drawable.round_blue)
+        binding.includeProgress.ivRoundRegistration.setImageResource(R.drawable.round_blue)
     }
 }

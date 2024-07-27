@@ -31,6 +31,9 @@
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.PregnantWomanListActivity" />
         <activity android:name=".activities.PregnantWomanScreeningActivity" />
+        <activity android:name=".activities.PregnantWomanRegistrationActivity" />
+        <activity android:name=".activities.PregnantWomanServicesActivity" />
+        <activity android:name=".activities.PregnantWomanExitActivity" />
     </application>
 
 </manifest>

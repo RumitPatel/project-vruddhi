@@ -11,4 +11,8 @@
     <dimen name="home_icon_padding">@dimen/_4sdp</dimen>
     <dimen name="home_icon_text_size">@dimen/_14sdp</dimen>
     <dimen name="home_icon_ll_padding">@dimen/_20sdp</dimen>
+    <dimen name="round_gray_h_w">@dimen/_14sdp</dimen>
+    <dimen name="round_gray_padding">@dimen/_3sdp</dimen>
+    <dimen name="screening_progress_text_margin_s_e">@dimen/_3sdp</dimen>
+    <dimen name="screening_progress_text_size">@dimen/_10sdp</dimen>
 </resources>

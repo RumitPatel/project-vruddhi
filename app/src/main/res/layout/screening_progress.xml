@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TableRow
+        android:id="@+id/trMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ivRoundScreening"
+            android:layout_width="@dimen/round_gray_h_w"
+            android:layout_height="@dimen/round_gray_h_w"
+            android:contentDescription="@null"
+            android:padding="@dimen/round_gray_padding"
+            app:srcCompat="@drawable/round_gray" />
+
+        <TextView
+            android:id="@+id/tvScreening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screening_progress_text_margin_s_e"
+            android:layout_marginEnd="@dimen/screening_progress_text_margin_s_e"
+            android:text="@string/screening"
+            android:textColor="@color/lightGray"
+            android:textSize="@dimen/screening_progress_text_size" />
+
+        <ImageView
+            android:id="@+id/ivLineRegistration"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/line_gray" />
+
+        <ImageView
+            android:id="@+id/ivRoundRegistration"
+            android:layout_width="@dimen/round_gray_h_w"
+            android:layout_height="@dimen/round_gray_h_w"
+            android:contentDescription="@null"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/round_gray_padding"
+            android:paddingEnd="@dimen/round_gray_padding"
+            android:paddingBottom="@dimen/round_gray_padding"
+            app:srcCompat="@drawable/round_gray" />
+
+        <TextView
+            android:id="@+id/tvRegistration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screening_progress_text_margin_s_e"
+            android:layout_marginEnd="@dimen/screening_progress_text_margin_s_e"
+            android:text="@string/registration"
+            android:textColor="@color/lightGray"
+            android:textSize="@dimen/screening_progress_text_size" />
+
+        <ImageView
+            android:id="@+id/ivLineServices"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/line_gray" />
+
+        <ImageView
+            android:id="@+id/ivRoundServices"
+            android:layout_width="@dimen/round_gray_h_w"
+            android:layout_height="@dimen/round_gray_h_w"
+            android:contentDescription="@null"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/round_gray_padding"
+            android:paddingEnd="@dimen/round_gray_padding"
+            android:paddingBottom="@dimen/round_gray_padding"
+            app:srcCompat="@drawable/round_gray" />
+
+        <TextView
+            android:id="@+id/tvServices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screening_progress_text_margin_s_e"
+            android:layout_marginEnd="@dimen/screening_progress_text_margin_s_e"
+            android:text="@string/services"
+            android:textColor="@color/lightGray"
+            android:textSize="@dimen/screening_progress_text_size" />
+
+        <ImageView
+            android:id="@+id/ivLineExit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/line_gray" />
+
+        <ImageView
+            android:id="@+id/ivRoundExit"
+            android:layout_width="@dimen/round_gray_h_w"
+            android:layout_height="@dimen/round_gray_h_w"
+            android:contentDescription="@null"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/round_gray_padding"
+            android:paddingEnd="@dimen/round_gray_padding"
+            android:paddingBottom="@dimen/round_gray_padding"
+            app:srcCompat="@drawable/round_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/tvExit"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screening_progress_text_margin_s_e"
+            android:layout_marginEnd="@dimen/screening_progress_text_margin_s_e"
+            android:text="@string/exit"
+            android:textColor="@color/lightGray"
+            android:textSize="@dimen/screening_progress_text_size" />
+
+    </TableRow>
+
+</layout>

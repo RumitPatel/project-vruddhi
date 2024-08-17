@@ -15,4 +15,6 @@
     <dimen name="round_gray_padding">@dimen/_3sdp</dimen>
     <dimen name="screening_progress_text_margin_s_e">@dimen/_3sdp</dimen>
     <dimen name="screening_progress_text_size">@dimen/_10sdp</dimen>
+    <dimen name="radio_group_padding">@dimen/_8sdp</dimen>
+    <dimen name="radio_group_margin_top">@dimen/_10sdp</dimen>
 </resources>

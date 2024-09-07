@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Niramay</string>
 
+    <!-- Network Connection -->
+    <string name="no_internet">No Internet Connection</string>
+    <string name="error_something_went_wrong">Something went wrong!</string>
+
+    <!-- Session Expire Dialog -->
+    <string name="txt_logout_401">Your session has been expired. Please login again.</string>
+
     <string name="welcome_to_niramay">Welcome to Niramay</string>
     <string name="dedicated_to_improve_">Dedicated to improve health and well-being of people of India</string>
     <string name="login">Log in</string>
@@ -56,4 +63,6 @@
     <string name="temp_string_2">Patient 1: Meenaben parmar</string>
     <string name="temp_string_3">32 years</string>
     <string name="temp_string_4">• Rampur</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

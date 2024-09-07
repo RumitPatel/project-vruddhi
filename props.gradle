@@ -1,0 +1,24 @@
+def filepath = "src/app.properties"
+def props = new Properties()
+file(filepath).withInputStream { props.load(it) }
+def env = [:]
+    try {
+        props.each { line ->
+            def matcher = (line =~ /^\s*(?:export\s+|)([\w\d.\-_]+)\s*=\s*['"]?(.*?)?['"]?\s*$/)
+            if (matcher.getCount() == 1 && matcher[0].size() == 3) {
+                env.put(matcher[0][1], matcher[0][2])
+            }
+        }
+    } catch (FileNotFoundException ignored) {
+        println("*** Missing app.properties file ****")
+    }
+    project.ext.set("env", env)
+
+android {
+    defaultConfig {
+        project.env.each { k, v ->
+            println("**** property key **** $k *** value $v ")
+            buildConfigField "String", k, "\"$v\""
+        }
+    }
+}

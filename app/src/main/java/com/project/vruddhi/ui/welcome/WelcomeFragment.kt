@@ -1,7 +1,6 @@
 package com.project.vruddhi.ui.welcome
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,17 +30,13 @@ class WelcomeFragment : FragmentBase() {
         return mView
     }
 
-    override fun setupToolbar() {
-
-    }
+    override fun setupToolbar() {}
 
     override fun initializeScreenVariables() {
         initComponents()
     }
 
-    override fun makeApiCalls() {
-
-    }
+    override fun makeApiCalls() {}
 
     private fun initComponents() {
         setListeners()
@@ -52,5 +47,4 @@ class WelcomeFragment : FragmentBase() {
             findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
         }
     }
-
 }

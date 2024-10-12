@@ -2,13 +2,20 @@ package com.project.vruddhi.network
 
 import com.project.vruddhi.BuildConfig.DEV_BASE_URL
 import com.project.vruddhi.BuildConfig.LOGIN
+import com.project.vruddhi.BuildConfig.PREGNANT_WOMEN_LIST
+import com.project.vruddhi.BuildConfig.PW_SCREENING
 import com.project.vruddhi.BuildConfig.SIGN_UP
-import com.project.vruddhi.ui.signin.model.request.LoginRequestModel
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.signin.model.response.LoginResponseModel
 import com.project.vruddhi.ui.signup.model.request.SignUpRequestModel
 import com.project.vruddhi.ui.signup.model.response.SignUpResponseModel
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Query
 import javax.inject.Singleton
 
 /**
@@ -30,10 +37,15 @@ interface ApiInterface {
         @Body request: SignUpRequestModel
     ): Response<ResponseData<SignUpResponseModel>>
 
+    @FormUrlEncoded
     @POST(DEV_BASE_URL + LOGIN)
     suspend fun getLogin(
-        @Body request: LoginRequestModel
+        @Field("email") email: String,
+        @Field("password") password: String,
     ): Response<ResponseData<LoginResponseModel>>
+
+    @GET(DEV_BASE_URL + PW_SCREENING + PREGNANT_WOMEN_LIST)
+    suspend fun getPregnantWomenList(): Response<ResponseDataList<PregnantWomanListResponse>>
 
     /*@FormUrlEncoded
     @POST(DEV_BASE_URL)

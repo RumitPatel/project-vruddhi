@@ -3,13 +3,10 @@ package com.project.vruddhi.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
@@ -54,7 +51,6 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
     private fun setClickListeners() {
         binding?.layToolbar?.ivBack?.setOnClickListener { navController?.popBackStack() }
     }
-
 
 
     /**
@@ -122,9 +118,9 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
         arguments: Bundle?
     ) {
 
-        when(destination.id) {
+        when (destination.id) {
 
-            R.id.welcomeFragment -> {
+            R.id.welcomeFragment, R.id.homeFragment -> {
                 showToolBar(false)
             }
 
@@ -139,7 +135,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
      *
      * @param isShow - boolean for show/hide
      */
-    private fun showToolBar(isShow : Boolean = true) {
+    private fun showToolBar(isShow: Boolean = true) {
         if (isShow) {
             binding?.layToolbar?.appBarMain?.visibility = View.VISIBLE
         } else {

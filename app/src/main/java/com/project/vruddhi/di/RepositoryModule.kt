@@ -2,6 +2,7 @@ package com.project.vruddhi.di
 
 import com.project.vruddhi.base.MainRepository
 import com.project.vruddhi.network.ApiInterface
+import com.project.vruddhi.ui.pregnantwoman.repository.PregnantWomanRepository
 import com.project.vruddhi.ui.signin.repository.LoginRepository
 import com.project.vruddhi.ui.signup.repository.SignUpRepository
 import dagger.Module
@@ -20,10 +21,17 @@ object RepositoryModule {
     @Provides
     @ViewModelScoped
     fun provideLoginRepository(apiInterface: ApiInterface) = LoginRepository(apiInterface)
+
     @Provides
     @ViewModelScoped
     fun provideSignUpRepository(apiInterface: ApiInterface) = SignUpRepository(apiInterface)
+
     @Provides
     @ViewModelScoped
     fun mainRepository(apiInterface: ApiInterface) = MainRepository(apiInterface)
+
+    @Provides
+    @ViewModelScoped
+    fun providePregnantWomanRepository(apiInterface: ApiInterface) =
+        PregnantWomanRepository(apiInterface)
 }

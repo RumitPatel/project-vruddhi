@@ -7,16 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
-import com.project.vruddhi.activities.HomeActivity
 import com.project.vruddhi.activities.ResetPasswordActivity
 import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentLoginBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
-import com.project.vruddhi.ui.signin.model.request.LoginRequestModel
 import com.project.vruddhi.ui.signin.viewmodel.LoginViewModel
-import com.project.vruddhi.utils.DebugLog
 
 /**
  * Login Fragment
@@ -56,6 +54,9 @@ class LoginFragment : FragmentBase() {
 
     }
 
+    /**
+     * method to set click listener
+     */
     private fun setListeners() {
 
         binding.tvForgotPassword.setOnClickListener {
@@ -70,12 +71,7 @@ class LoginFragment : FragmentBase() {
 
             val email = binding.etEmail.text.toString()
             val pass = binding.etPassword.text.toString()
-            val loginRequest = LoginRequestModel(
-                email,
-                pass
-            )
-            viewModel.callLoginApi(loginRequest)
-            startActivity(Intent(requireContext(), HomeActivity::class.java))
+            viewModel.callLoginApi(email, pass)
         }
     }
 
@@ -87,7 +83,7 @@ class LoginFragment : FragmentBase() {
         viewModel.apply {
 
             loginResponse?.observe(viewLifecycleOwner) {
-                when(it) {
+                when (it) {
                     is ResponseHandler.Loading -> {
                         showProgressBar()
                     }
@@ -96,13 +92,16 @@ class LoginFragment : FragmentBase() {
                         hideProgressBar()
 
                         it.response?.data?.let {
-                            DebugLog.e(it.data.toString())
+                            findNavController().navigate(R.id.nav_home)
+                            //startActivity(Intent(requireContext(), HomeActivity::class.java))
                         }
                     }
+
                     is ResponseHandler.OnFailed -> {
                         hideProgressBar()
-                        handleError(it.code?:0, it.message)
+                        handleError(it.code ?: 0, it.message)
                     }
+
                     else -> Unit
                 }
             }

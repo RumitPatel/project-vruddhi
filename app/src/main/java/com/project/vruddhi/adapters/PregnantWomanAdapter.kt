@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.vruddhi.databinding.ItemPregnantWomanListBinding
-import com.project.vruddhi.models.PatientInfo
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 
 class PregnantWomanAdapter(
-    private val mPatientInfos: List<PatientInfo>,
-    private val onPatientClick: (PatientInfo) -> Unit
+    private val mPatientInfos: List<PregnantWomanListResponse>,
+    private val onPatientClick: (PregnantWomanListResponse) -> Unit
 ) :
     RecyclerView.Adapter<PregnantWomanAdapter.MyViewHolder?>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -20,16 +20,16 @@ class PregnantWomanAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val patientInfo = mPatientInfos[holder.adapterPosition]
-        val patientName = patientInfo.patient_name
-        val patientAge = patientInfo.patient_age
-        val patientCity = patientInfo.patient_city
+        val patientName = patientInfo.womenName
+        val patientAge = patientInfo.age
+        val patientCity = patientInfo.village
 
 
         holder.binding.tvPatientName.text =
             if (!TextUtils.isEmpty(patientName)) (patientName) else ""
 
         holder.binding.tvPatientAge.text =
-            if (!TextUtils.isEmpty(patientAge)) ("$patientAge years") else ""
+            if (!TextUtils.isEmpty(patientAge.toString())) ("$patientAge years") else ""
 
         holder.binding.tvPatientCity.text =
             if (!TextUtils.isEmpty(patientCity)) (patientCity) else ""

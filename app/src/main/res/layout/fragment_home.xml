@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.home.HomeFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/banner_bg" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:src="@drawable/mother_child" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llPregnantWoman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/home_icon_ll_padding">
+
+            <ImageView
+                android:layout_width="@dimen/home_icon_h_w"
+                android:layout_height="@dimen/home_icon_h_w"
+                android:layout_margin="@dimen/home_icon_padding"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/pregnant_woman" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/home_icon_padding"
+                android:text="@string/pregnant_woman"
+                android:textSize="@dimen/home_icon_text_size"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/home_icon_ll_padding">
+
+                <ImageView
+                    android:layout_width="@dimen/home_icon_h_w"
+                    android:layout_height="@dimen/home_icon_h_w"
+                    android:layout_margin="@dimen/home_icon_padding"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/lbw_child" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/home_icon_padding"
+                    android:text="@string/lbw_child"
+                    android:textSize="@dimen/home_icon_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/home_icon_ll_padding">
+
+                <ImageView
+                    android:layout_width="@dimen/home_icon_h_w"
+                    android:layout_height="@dimen/home_icon_h_w"
+                    android:layout_margin="@dimen/home_icon_padding"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/sam_child" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/home_icon_padding"
+                    android:text="@string/sam_child"
+                    android:textSize="@dimen/home_icon_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/home_icon_ll_padding">
+
+                <ImageView
+                    android:layout_width="@dimen/home_icon_h_w"
+                    android:layout_height="@dimen/home_icon_h_w"
+                    android:layout_margin="@dimen/home_icon_padding"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/camp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/home_icon_padding"
+                    android:text="@string/camp"
+                    android:textSize="@dimen/home_icon_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/home_icon_ll_padding">
+
+                <ImageView
+                    android:layout_width="@dimen/home_icon_h_w"
+                    android:layout_height="@dimen/home_icon_h_w"
+                    android:layout_margin="@dimen/home_icon_padding"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/dashboard" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/home_icon_padding"
+                    android:text="@string/dashboard"
+                    android:textSize="@dimen/home_icon_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </TableRow>
+
+    </LinearLayout>
+</layout>

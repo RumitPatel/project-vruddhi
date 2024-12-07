@@ -32,11 +32,11 @@ class PregnantWomanListActivity : BaseActivity() {
 
         setVerticalLayoutManager(mContext, binding.rv)
 
-        val pregnantWomanAdapter = PregnantWomanAdapter(getTempPatient()) {
+        /*val pregnantWomanAdapter = PregnantWomanAdapter(getTempPatient()) {
             val patientInfo = it
             startActivity(Intent(mContext, PregnantWomanScreeningActivity::class.java))
         }
-        binding.rv.adapter = pregnantWomanAdapter
+        binding.rv.adapter = pregnantWomanAdapter*/
     }
 
     private fun setListeners() {

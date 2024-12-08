@@ -53,7 +53,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
     }
 
     override fun makeApiCalls() {
-
+        viewModel.callPregnantWomanGetScreeningApi()
     }
 
     private fun setScreeningProgressBar() {
@@ -94,6 +94,29 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                         }
 
                         findNavController().navigate(R.id.action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment)
+                    }
+
+                    is ResponseHandler.OnFailed -> {
+                        hideProgressBar()
+                        handleError(it.code ?: 0, it.message)
+                    }
+
+                    else -> Unit
+                }
+            }
+
+            pregnantWomanGetScreeningResponse?.observe(viewLifecycleOwner) {
+                when (it) {
+                    is ResponseHandler.Loading -> {
+                        showProgressBar()
+                    }
+
+                    is ResponseHandler.OnSuccessResponse -> {
+                        hideProgressBar()
+
+                        it.response?.data?.let {
+                            val aaa = it
+                        }
                     }
 
                     is ResponseHandler.OnFailed -> {

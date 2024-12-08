@@ -7,18 +7,21 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
-import com.project.vruddhi.databinding.ActivityPregnanatWomanRegistrationBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanUpdateRegistrationBinding
 
 
 class PregnantWomanRegistrationActivity : BaseActivity() {
 
     private lateinit var mContext: Context
-    private lateinit var binding: ActivityPregnanatWomanRegistrationBinding
+    private lateinit var binding: FragmentPregnanatWomanUpdateRegistrationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =
-            DataBindingUtil.setContentView(this, R.layout.activity_pregnanat_woman_registration)
+            DataBindingUtil.setContentView(
+                this,
+                R.layout.fragment_pregnanat_woman_update_registration
+            )
 
         initComponents()
 
@@ -31,9 +34,6 @@ class PregnantWomanRegistrationActivity : BaseActivity() {
     }
 
     private fun setListeners() {
-        binding.ivBack.setOnClickListener {
-            finish()
-        }
         binding.btnNext.setOnClickListener {
             startActivity(Intent(mContext, PregnantWomanServicesActivity::class.java))
         }

@@ -1,37 +1,32 @@
 package com.project.vruddhi.ui.pregnantwoman
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
-import com.project.vruddhi.activities.PregnantWomanScreeningActivity
-import com.project.vruddhi.adapters.PregnantWomanAdapter
 import com.project.vruddhi.base.FragmentBase
-import com.project.vruddhi.databinding.FragmentPregnantWomanListBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanUpdateScreeningBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
-import com.project.vruddhi.utils.setVerticalLayoutManager
 
 /**
- * Pregnant Woman list class
+ * Pregnant Woman screening class
  *
  */
-class PregnantWomanListFragment : FragmentBase() {
+class PregnantWomanUpdateScreeningFragment : FragmentBase() {
 
-    private lateinit var _binding: FragmentPregnantWomanListBinding
+    private lateinit var _binding: FragmentPregnanatWomanUpdateScreeningBinding
     private val binding get() = _binding
     private var mView: View? = null
 
     private val viewModel: PregnantWomanViewModel by viewModels()
 
-    private lateinit var adapterPregnantWoman: PregnantWomanAdapter
     private val listPregnantWoman = ArrayList<PregnantWomanListResponse>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +34,8 @@ class PregnantWomanListFragment : FragmentBase() {
     ): View? {
         // Inflate the layout for this fragment
         if (mView == null) {
-            _binding = FragmentPregnantWomanListBinding.inflate(inflater, container, false)
+            _binding =
+                FragmentPregnanatWomanUpdateScreeningBinding.inflate(inflater, container, false)
             mView = binding.root
         }
         return mView
@@ -50,38 +46,41 @@ class PregnantWomanListFragment : FragmentBase() {
     }
 
     override fun initializeScreenVariables() {
-
-        adapterPregnantWoman = PregnantWomanAdapter(listPregnantWoman) {
-//            val patientInfo = it
-//            startActivity(Intent(requireContext(), PregnantWomanScreeningActivity::class.java))
-            findNavController().navigate(R.id.action_pregnantWomanListFragment_to_pregnantWomanScreeningFragment)
-        }
-
         viewModel.init()
-        setRecyclerView()
+        setScreeningProgressBar()
+        setListeners()
         setDataObservers()
     }
 
     override fun makeApiCalls() {
-        viewModel.callPregnantWomanListApi()
+
+    }
+
+    private fun setScreeningProgressBar() {
+        binding.includeProgress.tvScreening.setTextColor(
+            ContextCompat.getColor(
+                requireActivity(),
+                R.color.colorPrimary
+            )
+        )
+        binding.includeProgress.ivRoundScreening.setImageResource(R.drawable.round_blue)
     }
 
     /**
-     * Method to set RecyclerView
+     * Method to set click listener
      */
-    private fun setRecyclerView() {
-        setVerticalLayoutManager(activity as AppCompatActivity, binding.rvPregnantWoman)
-        binding.rvPregnantWoman.adapter = adapterPregnantWoman
+    private fun setListeners() {
+        _binding.btnNext.setOnClickListener {
+            viewModel.callPregnantWomanUpdateScreeningApi("14")
+        }
     }
 
     /**
      * Method to set data observers
      */
     private fun setDataObservers() {
-
         viewModel.apply {
-
-            pregnantWomanResponse?.observe(viewLifecycleOwner) {
+            pregnantWomanScreeningResponse?.observe(viewLifecycleOwner) {
                 when (it) {
                     is ResponseHandler.Loading -> {
                         showProgressBar()
@@ -91,10 +90,10 @@ class PregnantWomanListFragment : FragmentBase() {
                         hideProgressBar()
 
                         it.response?.data?.let {
-                            listPregnantWoman.clear()
-                            listPregnantWoman.addAll(ArrayList(it))
-                            adapterPregnantWoman.notifyDataSetChanged()
+
                         }
+
+                        findNavController().navigate(R.id.action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment)
                     }
 
                     is ResponseHandler.OnFailed -> {

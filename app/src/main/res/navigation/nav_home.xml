@@ -7,15 +7,64 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.project.vruddhi.ui.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_pregnantWomanListFragment"
             app:destination="@id/pregnantWomanListFragment"
             app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="false"/>
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/pregnantWomanListFragment"
         android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanListFragment"
-        android:label="PregnantWomanListFragment" />
+        android:label="PregnantWomanListFragment">
+        <action
+            android:id="@+id/action_pregnantWomanListFragment_to_pregnantWomanScreeningFragment"
+            app:destination="@id/pregnantWomanScreeningFragment"
+            app:popUpTo="@id/pregnantWomanListFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/pregnantWomanScreeningFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateScreeningFragment"
+        android:label="PregnantWomanScreeningFragment">
+        <action
+            android:id="@+id/action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment"
+            app:destination="@id/pregnantWomanRegistrationFragment"
+            app:popUpTo="@id/pregnantWomanScreeningFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pregnantWomanRegistrationFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateRegistrationFragment"
+        android:label="PregnantWomanRegistrationFragment">
+        <action
+            android:id="@+id/action_pregnantWomanRegistrationFragment_to_pregnantWomanServicesFragment"
+            app:destination="@id/pregnantWomanServicesFragment"
+            app:popUpTo="@id/pregnantWomanRegistrationFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pregnantWomanServicesFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateServicesFragment"
+        android:label="PregnantWomanServicesFragment">
+        <action
+            android:id="@+id/action_pregnantWomanServicesFragment_to_pregnantWomanUpdateCounsellingFragment"
+            app:destination="@id/pregnantWomanUpdateCounsellingFragment"
+            app:popUpTo="@id/pregnantWomanServicesFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pregnantWomanUpdateCounsellingFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateCounsellingFragment"
+        android:label="PregnantWomanCounsellingFragment">
+        <action
+            android:id="@+id/action_pregnantWomanUpdateCounsellingFragment_to_pregnantWomanListFragment"
+            app:destination="@id/pregnantWomanListFragment"
+            app:popUpTo="@id/pregnantWomanUpdateCounsellingFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>

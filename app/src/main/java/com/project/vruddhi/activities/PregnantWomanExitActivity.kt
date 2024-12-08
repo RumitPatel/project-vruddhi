@@ -7,18 +7,21 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
-import com.project.vruddhi.databinding.ActivityPregnanatWomanExitBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanUpdateCounsellingBinding
 
 
 class PregnantWomanExitActivity : BaseActivity() {
 
     private lateinit var mContext: Context
-    private lateinit var binding: ActivityPregnanatWomanExitBinding
+    private lateinit var binding: FragmentPregnanatWomanUpdateCounsellingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =
-            DataBindingUtil.setContentView(this, R.layout.activity_pregnanat_woman_exit)
+            DataBindingUtil.setContentView(
+                this,
+                R.layout.fragment_pregnanat_woman_update_counselling
+            )
 
         initComponents()
 
@@ -31,9 +34,6 @@ class PregnantWomanExitActivity : BaseActivity() {
     }
 
     private fun setListeners() {
-        binding.ivBack.setOnClickListener {
-            finish()
-        }
         binding.btnNext.setOnClickListener {
             startActivity(
                 Intent(

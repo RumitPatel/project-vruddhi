@@ -41,6 +41,7 @@
     <string name="date_of_lmp">Date of LMP</string>
     <string name="current_month_of_pregnancy">Current Month of Pregnancy</string>
     <string name="height_in_cm">Height in cm</string>
+    <string name="pre_pregnancy_or_first_timer">Pre-pregnancy or first timer</string>
     <string name="weight_in_kg">weight_in_kg</string>
     <string name="screening">Screening</string>
     <string name="registration">Registration</string>
@@ -57,6 +58,37 @@
     <string name="registered_with_anm_govt_hospital">Registered with ANM/Govt Hospital for ANC?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="current_weight_in_kg">Current Weight in kg</string>
+    <string name="current_height_in_cm">Current Height in cm</string>
+    <string name="hemoglobin_level_in_cm">Hemoglobin level in cm</string>
+    <string name="counselling_details">Counselling Details</string>
+    <string name="nutrition_kit_given">Nutrition Kit given</string>
+    <string name="hand_washing_soap_given">Hand-washing soap given</string>
+    <string name="counselled_about_diet_during_pregnancy">Counselled about diet during pregnancy</string>
+    <string name="counselled_about_hand_wash_and_hygiene">Counselled about hand-wash and hygiene</string>
+    <string name="counselled_about_treatment_for_anemia">Counselled about treatment for anemia(if anemia present)</string>
+    <string name="nutrition_kit_photo">Nutrition Kit Photo</string>
+    <string name="upload">Upload</string>
+    <string name="any_complication">Any Complication</string>
+    <string name="complication_note">Complication Note</string>
+    <string name="add_service">+ Add Service</string>
+    <string name="delivery_of_child">Delivery of Child</string>
+    <string name="date_of_delivery">Date of Delivery</string>
+    <string name="place_of_delivery">Place of Delivery</string>
+    <string name="mode_of_delivery">Mode of Delivery</string>
+    <string name="normal">Normal</string>
+    <string name="cesarean">Cesarean</string>
+    <string name="instrumentation">Instrumentation</string>
+    <string name="duration_of_pregnancy">Duration of pregnancy</string>
+    <string name="preterm">Pre term</string>
+    <string name="full_term">Full term</string>
+    <string name="birth_weight">Birth weight</string>
+    <string name="complication_to_mother">Complication to Mother</string>
+    <string name="migration_within_project_area">Migration within Project Area</string>
+    <string name="name_of_village">Name of Village</string>
+    <string name="miscarriage">Miscarriage</string>
+    <string name="death_of_mother">Death of Mother</string>
+    <string name="reason_of_death">Reason of death</string>
 
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>

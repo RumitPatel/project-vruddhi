@@ -7,17 +7,18 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
-import com.project.vruddhi.databinding.ActivityPregnanatWomanScreeningBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanScreeningBinding
 
 
 class PregnantWomanScreeningActivity : BaseActivity() {
 
     private lateinit var mContext: Context
-    private lateinit var binding: ActivityPregnanatWomanScreeningBinding
+    private lateinit var binding: FragmentPregnanatWomanScreeningBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_pregnanat_woman_screening)
+        binding =
+            DataBindingUtil.setContentView(this, R.layout.fragment_pregnanat_woman_screening)
 
         initComponents()
 
@@ -30,9 +31,7 @@ class PregnantWomanScreeningActivity : BaseActivity() {
     }
 
     private fun setListeners() {
-        binding.ivBack.setOnClickListener {
-            finish()
-        }
+
         binding.btnNext.setOnClickListener {
             startActivity(Intent(mContext, PregnantWomanRegistrationActivity::class.java))
         }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
 import com.project.vruddhi.base.FragmentBase
@@ -47,7 +46,7 @@ class HomeFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
-        mView?.findViewById<LinearLayout?>(R.id.llPregnantWoman)?.setOnClickListener {
+        _binding?.llPregnantWoman?.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_pregnantWomanListFragment)
             //startActivity(Intent(requireContext(), PregnantWomanListActivity::class.java))
         }

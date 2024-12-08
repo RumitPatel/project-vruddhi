@@ -82,7 +82,13 @@
     <string name="duration_of_pregnancy">Duration of pregnancy</string>
     <string name="preterm">Pre term</string>
     <string name="full_term">Full term</string>
-    <string name="birth_weight">Birth </string>
+    <string name="birth_weight">Birth weight</string>
+    <string name="complication_to_mother">Complication to Mother</string>
+    <string name="migration_within_project_area">Migration within Project Area</string>
+    <string name="name_of_village">Name of Village</string>
+    <string name="miscarriage">Miscarriage</string>
+    <string name="death_of_mother">Death of Mother</string>
+    <string name="reason_of_death">Reason of death</string>
 
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>

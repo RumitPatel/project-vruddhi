@@ -131,8 +131,56 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_10sdp"
-                        android:text="@string/upload" />
+                        android:text="@string/upload"
+                        android:textColor="@color/colorPrimary" />
                 </TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/any_complication"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
+
+                    <RadioButton
+                        android:id="@+id/rbYesAnyIllness"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/rbNoAnyIllness"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/complication_note"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <EditText
+                    style="@style/editText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:textSize="@dimen/form_text_size" />
 
                 <Button
                     android:id="@+id/btnNext"

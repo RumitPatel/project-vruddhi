@@ -26,7 +26,55 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/name"
+                    android:text="@string/delivery_of_child"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
+
+                    <RadioButton
+                        android:id="@+id/rbYesAnyIllness"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/rbNoAnyIllness"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/date_of_delivery"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <EditText
+                    style="@style/editText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:hint="@string/date_of_birth_hint"
+                    android:textSize="@dimen/form_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/place_of_delivery"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
@@ -41,7 +89,51 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/husband_name"
+                    android:text="@string/mode_of_delivery"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_nutrition_kit_given"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/normal" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_hand_washing_soap_given"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cesarean" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_counselled_about_diet_during_pregnancy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instrumentation" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/duration_of_pregnancy"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/preterm" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/full_term" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/birth_weight"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
@@ -56,7 +148,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/date_of_birth"
+                    android:text="@string/complication_to_mother"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/complication_note"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
@@ -71,7 +193,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/age_in_years"
+                    android:text="@string/migration_within_project_area"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/name_of_village"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
@@ -86,82 +238,67 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/village"
+                    android:text="@string/miscarriage"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
-                    style="@style/editText1"
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/no" />
+                </RadioGroup>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/phone_number"
+                    android:text="@string/death_of_mother"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
-                    style="@style/editText1"
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/no" />
+                </RadioGroup>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/date_of_lmp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
-
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/current_month_of_pregnancy"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
-
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/height_in_cm"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
-
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/weight_in_kg"
+                    android:text="@string/reason_of_death"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 

@@ -1,6 +1,7 @@
 package com.project.vruddhi.network
 
 import com.project.vruddhi.BuildConfig.DEV_BASE_URL
+import com.project.vruddhi.BuildConfig.GET_SCREENING
 import com.project.vruddhi.BuildConfig.LOGIN
 import com.project.vruddhi.BuildConfig.PREGNANT_WOMEN_LIST
 import com.project.vruddhi.BuildConfig.PW_SCREENING
@@ -9,6 +10,7 @@ import com.project.vruddhi.BuildConfig.UPDATE_COUNSELLING
 import com.project.vruddhi.BuildConfig.UPDATE_REGISTRATION
 import com.project.vruddhi.BuildConfig.UPDATE_SCREENING
 import com.project.vruddhi.BuildConfig.UPDATE_SERVICES
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounsellingResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistrationResponse
@@ -55,6 +57,9 @@ interface ApiInterface {
 
     @GET(DEV_BASE_URL + PW_SCREENING + PREGNANT_WOMEN_LIST)
     suspend fun getPregnantWomenList(): Response<ResponseDataList<PregnantWomanListResponse>>
+
+    @GET(DEV_BASE_URL + PW_SCREENING + GET_SCREENING)
+    suspend fun getPregnantWomenGetScreening(): Response<ResponseDataList<PregnantWomanGetScreeningResponse>>
 
     @PUT(DEV_BASE_URL + PW_SCREENING + UPDATE_SCREENING)
     suspend fun pregnantWomenUpdateScreening(

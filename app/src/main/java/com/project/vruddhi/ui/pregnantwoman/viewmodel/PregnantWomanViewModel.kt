@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.project.vruddhi.base.ViewModelBase
 import com.project.vruddhi.network.ResponseDataList
 import com.project.vruddhi.network.ResponseHandler
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounsellingResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistrationResponse
@@ -21,6 +22,8 @@ class PregnantWomanViewModel @Inject constructor(
 ) : ViewModelBase() {
     var pregnantWomanResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanListResponse>?>>()
+    var pregnantWomanGetScreeningResponse =
+        SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanGetScreeningResponse>?>>()
     var pregnantWomanScreeningResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanUpdateScreeningResponse>?>>()
     var pregnantWomanRegistrationResponse =
@@ -42,6 +45,17 @@ class PregnantWomanViewModel @Inject constructor(
         viewModelScope.launch {
             pregnantWomanRepository.callPregnantWomanListApi().collect {
                 pregnantWomanResponse?.value = it
+            }
+        }
+    }
+
+    /**
+     * Method to call Pregnant Woman get screening
+     */
+    fun callPregnantWomanGetScreeningApi() {
+        viewModelScope.launch {
+            pregnantWomanRepository.callPregnantWomanGetScreeningApi().collect {
+                pregnantWomanGetScreeningResponse?.value = it
             }
         }
     }

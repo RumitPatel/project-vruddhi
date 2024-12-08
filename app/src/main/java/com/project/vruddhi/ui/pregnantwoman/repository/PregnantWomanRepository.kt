@@ -4,6 +4,7 @@ import com.project.vruddhi.base.BaseRepository
 import com.project.vruddhi.network.ApiInterface
 import com.project.vruddhi.network.ResponseDataList
 import com.project.vruddhi.network.ResponseHandler
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounsellingResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistrationResponse
@@ -19,6 +20,10 @@ class PregnantWomanRepository constructor(
 ) : BaseRepository() {
     suspend fun callPregnantWomanListApi(): Flow<ResponseHandler<ResponseDataList<PregnantWomanListResponse>?>> {
         return makeAPICallList { apiInterface.getPregnantWomenList() }
+    }
+
+    suspend fun callPregnantWomanGetScreeningApi(): Flow<ResponseHandler<ResponseDataList<PregnantWomanGetScreeningResponse>?>> {
+        return makeAPICallList { apiInterface.getPregnantWomenGetScreening() }
     }
 
     suspend fun callPregnantWomanUpdateScreeningApi(

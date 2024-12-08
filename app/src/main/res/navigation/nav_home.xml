@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/pregnantWomanServicesFragment"
-        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateServicesFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanServicesFragment"
         android:label="PregnantWomanServicesFragment">
         <action
             android:id="@+id/action_pregnantWomanServicesFragment_to_pregnantWomanUpdateCounsellingFragment"

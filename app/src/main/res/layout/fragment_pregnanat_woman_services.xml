@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="current"
+                    android:text="@string/current_weight_in_kg"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
@@ -41,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/husband_name"
+                    android:text="@string/current_height_in_cm"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
@@ -56,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/date_of_birth"
+                    android:text="@string/hemoglobin_level_in_cm"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
@@ -71,106 +72,67 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/age_in_years"
+                    android:text="@string/counselling_details"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_nutrition_kit_given"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
+                    android:text="@string/nutrition_kit_given" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_hand_washing_soap_given"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hand_washing_soap_given" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_counselled_about_diet_during_pregnancy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/counselled_about_diet_during_pregnancy" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_counselled_about_hand_wash_and_hygiene"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/counselled_about_hand_wash_and_hygiene" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/counselled_about_treatment_for_anemia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/counselled_about_treatment_for_anemia" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/village"
+                    android:text="@string/nutrition_kit_photo"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
-                    style="@style/editText1"
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
+                    android:background="@drawable/edittext_bg"
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/phone_number"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/upload" />
 
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/date_of_lmp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
-
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/current_month_of_pregnancy"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
-
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/height_in_cm"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
-
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:text="@string/weight_in_kg"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/form_text_size" />
-
-                <EditText
-                    style="@style/editText1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/form_margin_top"
-                    android:textSize="@dimen/form_text_size" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/upload" />
+                </TableRow>
 
                 <Button
                     android:id="@+id/btnNext"

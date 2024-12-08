@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
 import com.project.vruddhi.base.FragmentBase
-import com.project.vruddhi.databinding.FragmentPregnanatWomanUpdateRegistrationBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanRegistrationBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
@@ -19,9 +19,9 @@ import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
  * Pregnant Woman screening class
  *
  */
-class PregnantWomanUpdateCounsellingFragment : FragmentBase() {
+class PregnantWomanRegistrationFragment : FragmentBase() {
 
-    private lateinit var _binding: FragmentPregnanatWomanUpdateRegistrationBinding
+    private lateinit var _binding: FragmentPregnanatWomanRegistrationBinding
     private val binding get() = _binding
     private var mView: View? = null
 
@@ -35,7 +35,7 @@ class PregnantWomanUpdateCounsellingFragment : FragmentBase() {
         // Inflate the layout for this fragment
         if (mView == null) {
             _binding =
-                FragmentPregnanatWomanUpdateRegistrationBinding.inflate(inflater, container, false)
+                FragmentPregnanatWomanRegistrationBinding.inflate(inflater, container, false)
             mView = binding.root
         }
         return mView
@@ -67,24 +67,10 @@ class PregnantWomanUpdateCounsellingFragment : FragmentBase() {
         binding.includeProgress.tvRegistration.setTextColor(
             ContextCompat.getColor(
                 requireActivity(),
-                R.color.black
-            )
-        )
-        binding.includeProgress.ivRoundRegistration.setImageResource(R.drawable.round_green)
-        binding.includeProgress.tvServices.setTextColor(
-            ContextCompat.getColor(
-                requireActivity(),
-                R.color.black
-            )
-        )
-        binding.includeProgress.ivRoundServices.setImageResource(R.drawable.round_green)
-        binding.includeProgress.tvExit.setTextColor(
-            ContextCompat.getColor(
-                requireActivity(),
                 R.color.colorPrimary
             )
         )
-        binding.includeProgress.ivRoundExit.setImageResource(R.drawable.round_blue)
+        binding.includeProgress.ivRoundRegistration.setImageResource(R.drawable.round_blue)
     }
 
     /**
@@ -92,7 +78,7 @@ class PregnantWomanUpdateCounsellingFragment : FragmentBase() {
      */
     private fun setListeners() {
         _binding.btnNext.setOnClickListener {
-            viewModel.callPregnantWomanUpdateCounsellingApi("14")
+            viewModel.callPregnantWomanUpdateRegistrationApi("14")
         }
     }
 
@@ -101,7 +87,7 @@ class PregnantWomanUpdateCounsellingFragment : FragmentBase() {
      */
     private fun setDataObservers() {
         viewModel.apply {
-            pregnantWomanCounsellingResponse?.observe(viewLifecycleOwner) {
+            pregnantWomanRegistrationResponse?.observe(viewLifecycleOwner) {
                 when (it) {
                     is ResponseHandler.Loading -> {
                         showProgressBar()
@@ -114,7 +100,7 @@ class PregnantWomanUpdateCounsellingFragment : FragmentBase() {
 
                         }
 
-                        findNavController().navigate(R.id.action_pregnantWomanUpdateCounsellingFragment_to_pregnantWomanListFragment)
+                        findNavController().navigate(R.id.action_pregnantWomanRegistrationFragment_to_pregnantWomanServicesFragment)
                     }
 
                     is ResponseHandler.OnFailed -> {

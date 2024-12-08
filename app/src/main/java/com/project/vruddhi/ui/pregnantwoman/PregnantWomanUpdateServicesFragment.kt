@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
 import com.project.vruddhi.base.FragmentBase
-import com.project.vruddhi.databinding.FragmentPregnanatWomanUpdateRegistrationBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanRegistrationBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
@@ -21,7 +21,7 @@ import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
  */
 class PregnantWomanUpdateServicesFragment : FragmentBase() {
 
-    private lateinit var _binding: FragmentPregnanatWomanUpdateRegistrationBinding
+    private lateinit var _binding: FragmentPregnanatWomanRegistrationBinding
     private val binding get() = _binding
     private var mView: View? = null
 
@@ -35,7 +35,7 @@ class PregnantWomanUpdateServicesFragment : FragmentBase() {
         // Inflate the layout for this fragment
         if (mView == null) {
             _binding =
-                FragmentPregnanatWomanUpdateRegistrationBinding.inflate(inflater, container, false)
+                FragmentPregnanatWomanRegistrationBinding.inflate(inflater, container, false)
             mView = binding.root
         }
         return mView

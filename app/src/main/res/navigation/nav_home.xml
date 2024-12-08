@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/pregnantWomanScreeningFragment"
-        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateScreeningFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanScreeningFragment"
         android:label="PregnantWomanScreeningFragment">
         <action
             android:id="@+id/action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment"
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/pregnantWomanRegistrationFragment"
-        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateRegistrationFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanRegistrationFragment"
         android:label="PregnantWomanRegistrationFragment">
         <action
             android:id="@+id/action_pregnantWomanRegistrationFragment_to_pregnantWomanServicesFragment"
@@ -59,7 +59,7 @@
 
     <fragment
         android:id="@+id/pregnantWomanUpdateCounsellingFragment"
-        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanUpdateCounsellingFragment"
+        android:name="com.project.vruddhi.ui.pregnantwoman.PregnantWomanCounsellingFragment"
         android:label="PregnantWomanCounsellingFragment">
         <action
             android:id="@+id/action_pregnantWomanUpdateCounsellingFragment_to_pregnantWomanListFragment"

@@ -7,20 +7,20 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
-import com.project.vruddhi.databinding.FragmentPregnanatWomanUpdateRegistrationBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanRegistrationBinding
 
 
 class PregnantWomanRegistrationActivity : BaseActivity() {
 
     private lateinit var mContext: Context
-    private lateinit var binding: FragmentPregnanatWomanUpdateRegistrationBinding
+    private lateinit var binding: FragmentPregnanatWomanRegistrationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =
             DataBindingUtil.setContentView(
                 this,
-                R.layout.fragment_pregnanat_woman_update_registration
+                R.layout.fragment_pregnanat_woman_registration
             )
 
         initComponents()

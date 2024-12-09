@@ -8,8 +8,10 @@
     <!-- Session Expire Dialog -->
     <string name="txt_logout_401">Your session has been expired. Please login again.</string>
 
+    <string name="project_vruddhi">પ્રોજેક્ટ વ્રુદ્ધિ</string>
     <string name="welcome_to_niramay">Welcome to Niramay</string>
     <string name="dedicated_to_improve_">Dedicated to improve health and well-being of people of India</string>
+    <string name="a_holistic_approach_to">A Holistic approach to reduce anaemia and malnutrition in Okhamandal Taluka</string>
     <string name="login">Log in</string>
     <string name="log_into_account">Log into account</string>
     <string name="email">Email</string>

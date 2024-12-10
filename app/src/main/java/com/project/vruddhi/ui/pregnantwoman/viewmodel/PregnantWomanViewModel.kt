@@ -2,6 +2,7 @@ package com.project.vruddhi.ui.pregnantwoman.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.project.vruddhi.base.ViewModelBase
+import com.project.vruddhi.network.ResponseData
 import com.project.vruddhi.network.ResponseDataList
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
@@ -10,6 +11,8 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounselling
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistrationResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.pregnantwoman.repository.PregnantWomanRepository
 import com.project.vruddhi.utils.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,10 +23,13 @@ import javax.inject.Inject
 class PregnantWomanViewModel @Inject constructor(
     private val pregnantWomanRepository: PregnantWomanRepository
 ) : ViewModelBase() {
+
+    var mPregnantWomanGetScreeningInfo: PregnantWomanGetScreeningResponse? = null
+
     var pregnantWomanResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanListResponse>?>>()
     var pregnantWomanGetScreeningResponse =
-        SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanGetScreeningResponse>?>>()
+        SingleLiveEvent<ResponseHandler<ResponseData<PregnantWomanGetScreeningResponse>?>>()
     var pregnantWomanScreeningResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanUpdateScreeningResponse>?>>()
     var pregnantWomanRegistrationResponse =
@@ -36,6 +42,9 @@ class PregnantWomanViewModel @Inject constructor(
     fun init() {
         pregnantWomanResponse =
             SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanListResponse>?>>()
+
+        pregnantWomanGetScreeningResponse =
+            SingleLiveEvent<ResponseHandler<ResponseData<PregnantWomanGetScreeningResponse>?>>()
     }
 
     /**
@@ -44,7 +53,7 @@ class PregnantWomanViewModel @Inject constructor(
     fun callPregnantWomanListApi() {
         viewModelScope.launch {
             pregnantWomanRepository.callPregnantWomanListApi().collect {
-                pregnantWomanResponse?.value = it
+                pregnantWomanResponse.value = it
             }
         }
     }
@@ -52,10 +61,10 @@ class PregnantWomanViewModel @Inject constructor(
     /**
      * Method to call Pregnant Woman get screening
      */
-    fun callPregnantWomanGetScreeningApi() {
+    fun callPregnantWomanGetScreeningApi(userId: Long) {
         viewModelScope.launch {
-            pregnantWomanRepository.callPregnantWomanGetScreeningApi().collect {
-                pregnantWomanGetScreeningResponse?.value = it
+            pregnantWomanRepository.callPregnantWomanGetScreeningApi(userId).collect {
+                pregnantWomanGetScreeningResponse.value = it
             }
         }
     }
@@ -63,10 +72,16 @@ class PregnantWomanViewModel @Inject constructor(
     /**
      * Method to call Pregnant Woman update screening api
      */
-    fun callPregnantWomanUpdateScreeningApi(userId: String) {
+    fun callPregnantWomanUpdateScreeningApi(
+        userId: Long,
+        pregnantWomanScreeningUpdateRequest: PregnantWomanScreeningUpdateRequest
+    ) {
         viewModelScope.launch {
-            pregnantWomanRepository.callPregnantWomanUpdateScreeningApi(userId).collect {
-                pregnantWomanScreeningResponse?.value = it
+            pregnantWomanRepository.callPregnantWomanUpdateScreeningApi(
+                userId,
+                pregnantWomanScreeningUpdateRequest
+            ).collect {
+                pregnantWomanScreeningResponse.value = it
             }
         }
     }
@@ -74,11 +89,16 @@ class PregnantWomanViewModel @Inject constructor(
     /**
      * Method to call Pregnant Woman update registration api
      */
-    fun callPregnantWomanUpdateRegistrationApi(userId: String) {
+    fun callPregnantWomanUpdateRegistrationApi(
+        userId: Long,
+        request: PregnantWomanUpdateRegistrationRequest
+    ) {
         viewModelScope.launch {
-            pregnantWomanRepository.callPregnantWomanUpdateRegistrationApi(userId).collect {
-                pregnantWomanRegistrationResponse?.value = it
-            }
+            val request = PregnantWomanUpdateRegistrationRequest()
+            pregnantWomanRepository.callPregnantWomanUpdateRegistrationApi(userId, request)
+                .collect {
+                    pregnantWomanRegistrationResponse.value = it
+                }
         }
     }
 
@@ -88,7 +108,7 @@ class PregnantWomanViewModel @Inject constructor(
     fun callPregnantWomanUpdateServicesApi(userId: String) {
         viewModelScope.launch {
             pregnantWomanRepository.callPregnantWomanUpdateServicesApi(userId).collect {
-                pregnantWomanServicesResponse?.value = it
+                pregnantWomanServicesResponse.value = it
             }
         }
     }
@@ -99,7 +119,7 @@ class PregnantWomanViewModel @Inject constructor(
     fun callPregnantWomanUpdateCounsellingApi(userId: String) {
         viewModelScope.launch {
             pregnantWomanRepository.callPregnantWomanUpdateCounsellingApi(userId).collect {
-                pregnantWomanCounsellingResponse?.value = it
+                pregnantWomanCounsellingResponse.value = it
             }
         }
     }

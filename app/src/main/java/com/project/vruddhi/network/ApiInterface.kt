@@ -1,14 +1,15 @@
 package com.project.vruddhi.network
 
+import com.project.vruddhi.BuildConfig
 import com.project.vruddhi.BuildConfig.DEV_BASE_URL
-import com.project.vruddhi.BuildConfig.GET_SCREENING
+import com.project.vruddhi.BuildConfig.ENDPOINT
+import com.project.vruddhi.BuildConfig.ENDPOINT_UPDATE_REGISTRATION
+import com.project.vruddhi.BuildConfig.ID
 import com.project.vruddhi.BuildConfig.LOGIN
 import com.project.vruddhi.BuildConfig.PREGNANT_WOMEN_LIST
 import com.project.vruddhi.BuildConfig.PW_SCREENING
 import com.project.vruddhi.BuildConfig.SIGN_UP
 import com.project.vruddhi.BuildConfig.UPDATE_COUNSELLING
-import com.project.vruddhi.BuildConfig.UPDATE_REGISTRATION
-import com.project.vruddhi.BuildConfig.UPDATE_SCREENING
 import com.project.vruddhi.BuildConfig.UPDATE_SERVICES
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
@@ -16,6 +17,8 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounselling
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistrationResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.signin.model.response.LoginResponseModel
 import com.project.vruddhi.ui.signup.model.request.SignUpRequestModel
 import com.project.vruddhi.ui.signup.model.response.SignUpResponseModel
@@ -58,15 +61,24 @@ interface ApiInterface {
     @GET(DEV_BASE_URL + PW_SCREENING + PREGNANT_WOMEN_LIST)
     suspend fun getPregnantWomenList(): Response<ResponseDataList<PregnantWomanListResponse>>
 
-    @GET(DEV_BASE_URL + PW_SCREENING + GET_SCREENING)
-    suspend fun getPregnantWomenGetScreening(): Response<ResponseDataList<PregnantWomanGetScreeningResponse>>
+    @GET("$DEV_BASE_URL$PW_SCREENING")
+    suspend fun getPregnantWomenGetScreening(
+        @Query(ENDPOINT) endPoint: String = BuildConfig.ENDPOINT_PW_SCREENING_BY_ID,
+        @Query(ID) id: Long
+    ): Response<ResponseData<PregnantWomanGetScreeningResponse>>
 
-    @PUT(DEV_BASE_URL + PW_SCREENING + UPDATE_SCREENING)
+    @PUT("$DEV_BASE_URL$PW_SCREENING")
     suspend fun pregnantWomenUpdateScreening(
+        @Query("endpoint") endPoint: String = BuildConfig.ENDPOINT_PW_UPDATE_SCR,
+        @Query(ID) id: Long,
+        @Body pregnantWomanScreeningUpdateRequest: PregnantWomanScreeningUpdateRequest
     ): Response<ResponseDataList<PregnantWomanUpdateScreeningResponse>>
 
-    @PUT(DEV_BASE_URL + PW_SCREENING + UPDATE_REGISTRATION)
+    @PUT(DEV_BASE_URL + PW_SCREENING)
     suspend fun pregnantWomenUpdateRegistration(
+        @Query("endpoint") endPoint: String = ENDPOINT_UPDATE_REGISTRATION,
+        @Query(ID) id: Long,
+        @Body pregnantWomanUpdateRegistrationRequest: PregnantWomanUpdateRegistrationRequest
     ): Response<ResponseDataList<PregnantWomanUpdateRegistrationResponse>>
 
     @PUT(DEV_BASE_URL + PW_SCREENING + UPDATE_SERVICES)

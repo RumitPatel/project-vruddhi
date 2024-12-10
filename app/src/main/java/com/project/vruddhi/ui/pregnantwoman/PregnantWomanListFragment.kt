@@ -1,15 +1,13 @@
 package com.project.vruddhi.ui.pregnantwoman
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
-import com.project.vruddhi.activities.PregnantWomanScreeningActivity
 import com.project.vruddhi.adapters.PregnantWomanAdapter
 import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentPregnantWomanListBinding
@@ -17,6 +15,7 @@ import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
+import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO
 import com.project.vruddhi.utils.setVerticalLayoutManager
 
 /**
@@ -29,7 +28,7 @@ class PregnantWomanListFragment : FragmentBase() {
     private val binding get() = _binding
     private var mView: View? = null
 
-    private val viewModel: PregnantWomanViewModel by viewModels()
+    private val viewModel: PregnantWomanViewModel by activityViewModels()
 
     private lateinit var adapterPregnantWoman: PregnantWomanAdapter
     private val listPregnantWoman = ArrayList<PregnantWomanListResponse>()
@@ -52,9 +51,12 @@ class PregnantWomanListFragment : FragmentBase() {
     override fun initializeScreenVariables() {
 
         adapterPregnantWoman = PregnantWomanAdapter(listPregnantWoman) {
-//            val patientInfo = it
-//            startActivity(Intent(requireContext(), PregnantWomanScreeningActivity::class.java))
-            findNavController().navigate(R.id.action_pregnantWomanListFragment_to_pregnantWomanScreeningFragment)
+            val bundle = Bundle()
+            bundle.putParcelable(PREGNANT_WOMAN_PATIENT_INFO, it)
+            findNavController().navigate(
+                R.id.action_pregnantWomanListFragment_to_pregnantWomanScreeningFragment,
+                bundle
+            )
         }
 
         viewModel.init()

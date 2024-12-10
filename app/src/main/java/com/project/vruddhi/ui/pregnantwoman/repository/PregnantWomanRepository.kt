@@ -2,6 +2,7 @@ package com.project.vruddhi.ui.pregnantwoman.repository
 
 import com.project.vruddhi.base.BaseRepository
 import com.project.vruddhi.network.ApiInterface
+import com.project.vruddhi.network.ResponseData
 import com.project.vruddhi.network.ResponseDataList
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
@@ -10,6 +11,8 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounselling
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistrationResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -22,20 +25,32 @@ class PregnantWomanRepository constructor(
         return makeAPICallList { apiInterface.getPregnantWomenList() }
     }
 
-    suspend fun callPregnantWomanGetScreeningApi(): Flow<ResponseHandler<ResponseDataList<PregnantWomanGetScreeningResponse>?>> {
-        return makeAPICallList { apiInterface.getPregnantWomenGetScreening() }
+    suspend fun callPregnantWomanGetScreeningApi(userId: Long): Flow<ResponseHandler<ResponseData<PregnantWomanGetScreeningResponse>?>> {
+        return makeAPICall { apiInterface.getPregnantWomenGetScreening(id = userId) }
     }
 
     suspend fun callPregnantWomanUpdateScreeningApi(
-        userId: String,
+        userId: Long,
+        request: PregnantWomanScreeningUpdateRequest
     ): Flow<ResponseHandler<ResponseDataList<PregnantWomanUpdateScreeningResponse>?>> {
-        return makeAPICallList { apiInterface.pregnantWomenUpdateScreening() }
+        return makeAPICallList {
+            apiInterface.pregnantWomenUpdateScreening(
+                id = userId,
+                pregnantWomanScreeningUpdateRequest = request
+            )
+        }
     }
 
     suspend fun callPregnantWomanUpdateRegistrationApi(
-        userId: String,
+        userId: Long,
+        request: PregnantWomanUpdateRegistrationRequest
     ): Flow<ResponseHandler<ResponseDataList<PregnantWomanUpdateRegistrationResponse>?>> {
-        return makeAPICallList { apiInterface.pregnantWomenUpdateRegistration() }
+        return makeAPICallList {
+            apiInterface.pregnantWomenUpdateRegistration(
+                id = userId,
+                pregnantWomanUpdateRegistrationRequest = request
+            )
+        }
     }
 
     suspend fun callPregnantWomanUpdateServicesApi(

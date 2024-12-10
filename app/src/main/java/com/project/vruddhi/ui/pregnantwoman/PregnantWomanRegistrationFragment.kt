@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
 import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentPregnanatWomanRegistrationBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
-import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 
 /**
@@ -25,9 +25,8 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
     private val binding get() = _binding
     private var mView: View? = null
 
-    private val viewModel: PregnantWomanViewModel by viewModels()
+    private val viewModel: PregnantWomanViewModel by activityViewModels()
 
-    private val listPregnantWoman = ArrayList<PregnantWomanListResponse>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -77,8 +76,16 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
-        _binding.btnNext.setOnClickListener {
-            viewModel.callPregnantWomanUpdateRegistrationApi("14")
+        binding.btnNext.setOnClickListener {
+            val request = PregnantWomanUpdateRegistrationRequest()
+            request.userId = viewModel.mPregnantWomanGetScreeningInfo?.id
+            viewModel.mPregnantWomanGetScreeningInfo?.id?.toLong()
+                ?.let { it1 ->
+                    viewModel.callPregnantWomanUpdateRegistrationApi(
+                        userId = it1,
+                        request = request
+                    )
+                }
         }
     }
 

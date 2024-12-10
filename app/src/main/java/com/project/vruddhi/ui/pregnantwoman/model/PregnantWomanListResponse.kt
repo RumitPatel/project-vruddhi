@@ -1,6 +1,10 @@
 package com.project.vruddhi.ui.pregnantwoman.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class PregnantWomanListResponse(
 
     @field:SerializedName("women_name")
@@ -17,4 +21,4 @@ data class PregnantWomanListResponse(
 
     @field:SerializedName("age")
     val age: Int? = null
-)
+) : Parcelable

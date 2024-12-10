@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.project.vruddhi.BaseActivity
 import com.project.vruddhi.R
 import com.project.vruddhi.databinding.ActivityMainBinding
-import com.project.vruddhi.ui.welcome.WelcomeFragment
+import com.project.vruddhi.ui.home.HomeFragment
 
 
 class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener {
@@ -77,7 +77,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
                 navHostFrag?.let { navHostFragment ->
                     navHostFragment.childFragmentManager.fragments[0]?.let {
                         when (it) {
-                            is WelcomeFragment -> {
+                            is HomeFragment -> {
 
                                 val intent = Intent(Intent.ACTION_MAIN)
                                 intent.addCategory(Intent.CATEGORY_HOME)
@@ -143,5 +143,8 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
         }
     }
 
-
+    fun logoutApp() {
+        mPref.clearAllData()
+        navController?.navigate(R.id.nav_main)
+    }
 }

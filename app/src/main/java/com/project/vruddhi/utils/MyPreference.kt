@@ -5,7 +5,12 @@ import android.util.Base64
 import android.util.Base64InputStream
 import android.util.Base64OutputStream
 import androidx.core.content.edit
-import java.io.*
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.io.IOException
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
+import java.io.StreamCorruptedException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -55,7 +60,21 @@ class MyPreference @Inject constructor(private var mSharedPref: SharedPreference
         }
     }
 
-     fun clearAllData() {
+    fun getValueLong(
+        key: String,
+        defaultValue: Long
+    ): Long {
+        return mSharedPref.getLong(key, defaultValue)
+    }
+
+    fun setValueLong(key: String, value: Long) {
+        mSharedPref.edit {
+            putLong(key, value)
+            apply()
+        }
+    }
+
+    fun clearAllData() {
         mSharedPref.edit {
             clear()
             apply()

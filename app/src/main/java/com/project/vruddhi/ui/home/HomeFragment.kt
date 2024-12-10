@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
+import com.project.vruddhi.activities.MainActivity
 import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentHomeBinding
 
@@ -46,9 +47,13 @@ class HomeFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
-        _binding?.llPregnantWoman?.setOnClickListener {
+        binding?.llPregnantWoman?.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_pregnantWomanListFragment)
             //startActivity(Intent(requireContext(), PregnantWomanListActivity::class.java))
+        }
+
+        binding?.tvDashboard?.setOnClickListener {
+            (activity as MainActivity).logoutApp()
         }
     }
 

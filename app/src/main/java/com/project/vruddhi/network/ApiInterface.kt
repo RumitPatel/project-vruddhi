@@ -4,13 +4,14 @@ import com.project.vruddhi.BuildConfig
 import com.project.vruddhi.BuildConfig.DEV_BASE_URL
 import com.project.vruddhi.BuildConfig.ENDPOINT
 import com.project.vruddhi.BuildConfig.ENDPOINT_UPDATE_REGISTRATION
+import com.project.vruddhi.BuildConfig.ENDPOINT_UPDATE_SERVICES
 import com.project.vruddhi.BuildConfig.ID
 import com.project.vruddhi.BuildConfig.LOGIN
 import com.project.vruddhi.BuildConfig.PREGNANT_WOMEN_LIST
 import com.project.vruddhi.BuildConfig.PW_SCREENING
 import com.project.vruddhi.BuildConfig.SIGN_UP
 import com.project.vruddhi.BuildConfig.UPDATE_COUNSELLING
-import com.project.vruddhi.BuildConfig.UPDATE_SERVICES
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanCounsellingResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningAllResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
@@ -19,6 +20,7 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistratio
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateCounsellingRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.signin.model.response.LoginResponseModel
 import com.project.vruddhi.ui.signup.model.request.SignUpRequestModel
@@ -88,8 +90,17 @@ interface ApiInterface {
         @Body pregnantWomanUpdateRegistrationRequest: PregnantWomanUpdateRegistrationRequest
     ): Response<ResponseDataList<PregnantWomanUpdateRegistrationResponse>>
 
-    @PUT(DEV_BASE_URL + PW_SCREENING + UPDATE_SERVICES)
+    @GET("$DEV_BASE_URL$PW_SCREENING")
+    suspend fun getPregnantWomenGetCounselling(
+        @Query(ENDPOINT) endPoint: String = BuildConfig.ENDPOINT_GET_COUNSELLING,
+        @Query(ID) id: Long
+    ): Response<ResponseDataList<PregnantWomanCounsellingResponse>>
+
+    @PUT(DEV_BASE_URL + PW_SCREENING)
     suspend fun pregnantWomenUpdateServices(
+        @Query("endpoint") endPoint: String = ENDPOINT_UPDATE_SERVICES,
+        @Query(ID) id: Long,
+        @Body request: ArrayList<PregnantWomanUpdateCounsellingRequest>
     ): Response<ResponseDataList<PregnantWomanUpdateServicesResponse>>
 
     @PUT(DEV_BASE_URL + PW_SCREENING + UPDATE_COUNSELLING)

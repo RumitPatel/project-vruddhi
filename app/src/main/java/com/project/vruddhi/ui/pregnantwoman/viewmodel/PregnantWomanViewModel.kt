@@ -5,6 +5,7 @@ import com.project.vruddhi.base.ViewModelBase
 import com.project.vruddhi.network.ResponseData
 import com.project.vruddhi.network.ResponseDataList
 import com.project.vruddhi.network.ResponseHandler
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanCounsellingResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningAllResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
@@ -13,6 +14,7 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistratio
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateCounsellingRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.pregnantwoman.repository.PregnantWomanRepository
 import com.project.vruddhi.utils.SingleLiveEvent
@@ -41,6 +43,9 @@ class PregnantWomanViewModel @Inject constructor(
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanUpdateServicesResponse>?>>()
     var pregnantWomanCounsellingResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanUpdateCounsellingResponse>?>>()
+
+    var pregnantWomanGetCounsellingResponse =
+        SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanCounsellingResponse>?>>()
 
     fun init() {
         pregnantWomanResponse =
@@ -116,13 +121,31 @@ class PregnantWomanViewModel @Inject constructor(
     }
 
     /**
+     * Method to call Pregnant Woman update registration api
+     */
+    fun callPregnantWomanGetCounsellingApi(
+        screeningId: Long
+    ) {
+        viewModelScope.launch {
+            pregnantWomanRepository.callPregnantWomanGetCounsellingApi(screeningId)
+                .collect {
+                    pregnantWomanGetCounsellingResponse.value = it
+                }
+        }
+    }
+
+    /**
      * Method to call Pregnant Woman update services api
      */
-    fun callPregnantWomanUpdateServicesApi(userId: String) {
+    fun callPregnantWomanUpdateServicesApi(
+        screeningId: Long,
+        request: ArrayList<PregnantWomanUpdateCounsellingRequest>
+    ) {
         viewModelScope.launch {
-            pregnantWomanRepository.callPregnantWomanUpdateServicesApi(userId).collect {
-                pregnantWomanServicesResponse.value = it
-            }
+            pregnantWomanRepository.callPregnantWomanUpdateServicesApi(screeningId, request)
+                .collect {
+                    pregnantWomanServicesResponse.value = it
+                }
         }
     }
 

@@ -16,7 +16,7 @@ data class PregnantWomanScreeningUpdateRequest(
     @SerializedName("dob")
     var dob: String? = null, // 1979-07-11
     @SerializedName("height")
-    var height: Int? = null, // 54
+    var height: String? = null, // 54
     @SerializedName("husband_name")
     var husbandName: String? = null, // Paresh Patell
     @SerializedName("is_low_BMI")
@@ -30,7 +30,7 @@ data class PregnantWomanScreeningUpdateRequest(
     @SerializedName("village")
     var village: String? = null, // Kudasan
     @SerializedName("weight")
-    var weight: Int? = null, // 87
+    var weight: String? = null, // 87
     @SerializedName("women_name")
     var womenName: String? = null // Savita patel
 )

@@ -15,7 +15,7 @@ import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
-import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO
+import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO_ID
 import com.project.vruddhi.utils.setVerticalLayoutManager
 
 /**
@@ -52,7 +52,9 @@ class PregnantWomanListFragment : FragmentBase() {
 
         adapterPregnantWoman = PregnantWomanAdapter(listPregnantWoman) {
             val bundle = Bundle()
-            bundle.putParcelable(PREGNANT_WOMAN_PATIENT_INFO, it)
+            if (it.id != null) {
+                bundle.putLong(PREGNANT_WOMAN_PATIENT_INFO_ID, it.id)
+            }
             findNavController().navigate(
                 R.id.action_pregnantWomanListFragment_to_pregnantWomanScreeningFragment,
                 bundle

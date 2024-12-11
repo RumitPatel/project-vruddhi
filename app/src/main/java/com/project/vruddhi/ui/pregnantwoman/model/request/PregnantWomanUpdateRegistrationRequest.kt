@@ -10,15 +10,15 @@ data class PregnantWomanUpdateRegistrationRequest(
     @SerializedName("is_ANM_registered")
     var isANMRegistered: Int? = null, // 1
     @SerializedName("no_of_abortion")
-    var noOfAbortion: Int? = null, // 5
+    var noOfAbortion: String? = null, // 5
     @SerializedName("no_of_live_children")
-    var noOfLiveChildren: Int? = null, // 5
+    var noOfLiveChildren: String? = null, // 5
     @SerializedName("no_of_pregnancy")
-    var noOfPregnancy: Int? = null, // 5
+    var noOfPregnancy: String? = null, // 5
     @SerializedName("occupation")
     var occupation: String? = null, // House wife
     @SerializedName("screening_id")
-    var screeningId: Int? = null, // 101
+    var screeningId: String? = null, // 101
     @SerializedName("user_id")
-    var userId: Int? = null // 202
+    var userId: String? = null // 202
 )

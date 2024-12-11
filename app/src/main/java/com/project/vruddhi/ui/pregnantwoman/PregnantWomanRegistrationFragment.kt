@@ -14,6 +14,7 @@ import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
+import com.project.vruddhi.utils.PrefKey
 
 /**
  * Pregnant Woman screening class
@@ -46,6 +47,7 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
 
     override fun initializeScreenVariables() {
         viewModel.init()
+        setPatientData()
         setScreeningProgressBar()
         setListeners()
         setDataObservers()
@@ -53,6 +55,20 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
 
     override fun makeApiCalls() {
 
+    }
+
+    /**
+     * Method to set patient data
+     */
+    private fun setPatientData() {
+        viewModel.mPregnantWomanGetScreeningInfo?.apply {
+            binding.tvNoOfPregnancy.setText(noOfPregnancy.toString())
+            binding.tvNoOfChild.setText(noOfLiveChildren.toString())
+            binding.tvNoOfAbortion.setText(noOfAbortion.toString())
+            binding.tvEducationOfMother.setText(education.toString())
+            binding.tvOccupation.setText(occupation.toString())
+
+        }
     }
 
     private fun setScreeningProgressBar() {
@@ -78,11 +94,19 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
     private fun setListeners() {
         binding.btnNext.setOnClickListener {
             val request = PregnantWomanUpdateRegistrationRequest()
-            request.userId = viewModel.mPregnantWomanGetScreeningInfo?.id
-            viewModel.mPregnantWomanGetScreeningInfo?.id?.toLong()
+            request.screeningId = viewModel.mPregnantWomanGetScreeningInfo?.screeningId.toString()
+            request.userId = mPref.getValueLong(PrefKey.PREF_USER_ID, 0L).toString()
+            request.illness = binding.tvIllnessNote.text.toString()
+            request.noOfAbortion = binding.tvNoOfAbortion.text.toString()
+            request.noOfPregnancy = binding.tvNoOfPregnancy.text.toString()
+            request.noOfLiveChildren = binding.tvNoOfChild.text.toString()
+            request.education = binding.tvEducationOfMother.text.toString()
+            request.occupation = binding.tvOccupation.text.toString()
+            request.isANMRegistered = 0
+            viewModel.mPregnantWomanGetScreeningInfo?.screeningId
                 ?.let { it1 ->
                     viewModel.callPregnantWomanUpdateRegistrationApi(
-                        userId = it1,
+                        screeningId = it1,
                         request = request
                     )
                 }
@@ -94,7 +118,7 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
      */
     private fun setDataObservers() {
         viewModel.apply {
-            pregnantWomanRegistrationResponse?.observe(viewLifecycleOwner) {
+            pregnantWomanRegistrationResponse.observe(viewLifecycleOwner) {
                 when (it) {
                     is ResponseHandler.Loading -> {
                         showProgressBar()
@@ -102,10 +126,7 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
 
                     is ResponseHandler.OnSuccessResponse -> {
                         hideProgressBar()
-
-                        it.response?.data?.let {
-
-                        }
+                        showSnackBar(it.response?.message)
 
                         findNavController().navigate(R.id.action_pregnantWomanRegistrationFragment_to_pregnantWomanServicesFragment)
                     }

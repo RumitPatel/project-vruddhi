@@ -5,6 +5,7 @@ import com.project.vruddhi.network.ApiInterface
 import com.project.vruddhi.network.ResponseData
 import com.project.vruddhi.network.ResponseDataList
 import com.project.vruddhi.network.ResponseHandler
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningAllResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounsellingResponse
@@ -29,6 +30,10 @@ class PregnantWomanRepository constructor(
         return makeAPICall { apiInterface.getPregnantWomenGetScreening(id = userId) }
     }
 
+    suspend fun callPregnantWomanGetScreeningAllApi(userId: Long): Flow<ResponseHandler<ResponseDataList<PregnantWomanGetScreeningAllResponse>?>> {
+        return makeAPICallList { apiInterface.getPregnantWomenGetScreeningAll(id = userId) }
+    }
+
     suspend fun callPregnantWomanUpdateScreeningApi(
         userId: Long,
         request: PregnantWomanScreeningUpdateRequest
@@ -42,12 +47,12 @@ class PregnantWomanRepository constructor(
     }
 
     suspend fun callPregnantWomanUpdateRegistrationApi(
-        userId: Long,
+        screeningId: Long,
         request: PregnantWomanUpdateRegistrationRequest
     ): Flow<ResponseHandler<ResponseDataList<PregnantWomanUpdateRegistrationResponse>?>> {
         return makeAPICallList {
             apiInterface.pregnantWomenUpdateRegistration(
-                id = userId,
+                id = screeningId,
                 pregnantWomanUpdateRegistrationRequest = request
             )
         }

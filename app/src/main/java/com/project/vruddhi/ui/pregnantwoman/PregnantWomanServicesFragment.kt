@@ -12,7 +12,6 @@ import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentPregnanatWomanServicesBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
-import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 
 /**
@@ -27,7 +26,6 @@ class PregnantWomanServicesFragment : FragmentBase() {
 
     private val viewModel: PregnantWomanViewModel by viewModels()
 
-    private val listPregnantWoman = ArrayList<PregnantWomanListResponse>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

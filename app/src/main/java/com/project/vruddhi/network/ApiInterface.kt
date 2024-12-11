@@ -11,6 +11,7 @@ import com.project.vruddhi.BuildConfig.PW_SCREENING
 import com.project.vruddhi.BuildConfig.SIGN_UP
 import com.project.vruddhi.BuildConfig.UPDATE_COUNSELLING
 import com.project.vruddhi.BuildConfig.UPDATE_SERVICES
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningAllResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounsellingResponse
@@ -66,6 +67,12 @@ interface ApiInterface {
         @Query(ENDPOINT) endPoint: String = BuildConfig.ENDPOINT_PW_SCREENING_BY_ID,
         @Query(ID) id: Long
     ): Response<ResponseData<PregnantWomanGetScreeningResponse>>
+
+    @GET("$DEV_BASE_URL$PW_SCREENING")
+    suspend fun getPregnantWomenGetScreeningAll(
+        @Query(ENDPOINT) endPoint: String = BuildConfig.ENDPOINT_PW_SCREENING_ALL,
+        @Query(ID) id: Long
+    ): Response<ResponseDataList<PregnantWomanGetScreeningAllResponse>>
 
     @PUT("$DEV_BASE_URL$PW_SCREENING")
     suspend fun pregnantWomenUpdateScreening(

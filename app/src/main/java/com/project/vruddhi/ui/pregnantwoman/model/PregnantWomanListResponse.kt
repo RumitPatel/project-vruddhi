@@ -14,7 +14,7 @@ data class PregnantWomanListResponse(
     val mobile: String? = null,
 
     @field:SerializedName("id")
-    val id: Int? = null,
+    val id: Long? = null,
 
     @field:SerializedName("village")
     val village: String? = null,

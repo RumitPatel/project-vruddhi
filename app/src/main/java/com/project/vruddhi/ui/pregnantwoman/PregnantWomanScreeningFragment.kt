@@ -12,10 +12,9 @@ import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentPregnanatWomanScreeningBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
-import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
-import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO
+import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO_ID
 
 /**
  * Pregnant Woman screening class
@@ -29,7 +28,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
 
     private val viewModel: PregnantWomanViewModel by activityViewModels()
 
-    private var mPatientInfo: PregnantWomanListResponse? = null
+    private var mPatientInfoId: Long? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,7 +59,9 @@ class PregnantWomanScreeningFragment : FragmentBase() {
     }
 
     override fun makeApiCalls() {
-        mPatientInfo?.id?.let { viewModel.callPregnantWomanGetScreeningApi(it.toLong()) }
+        if (mPatientInfoId != null) {
+            viewModel.callPregnantWomanGetScreeningAllApi(mPatientInfoId!!.toLong())
+        }
     }
 
     /**
@@ -68,7 +69,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
      */
     private fun getArgumentsData() {
         if (arguments != null && !requireArguments().isEmpty) {
-            mPatientInfo = requireArguments().getParcelable(PREGNANT_WOMAN_PATIENT_INFO)
+            mPatientInfoId = requireArguments().getLong(PREGNANT_WOMAN_PATIENT_INFO_ID)
         }
     }
 
@@ -91,8 +92,8 @@ class PregnantWomanScreeningFragment : FragmentBase() {
             val request = PregnantWomanScreeningUpdateRequest()
             request.age = binding.tvAge.text.toString().toInt()
             request.dob = binding.tvDob.text.toString()
-            request.height = binding.tvHeight.text.toString().toInt()
-            request.weight = binding.tvWeight.text.toString().toInt()
+            request.height = binding.tvHeight.text.toString()
+            request.weight = binding.tvWeight.text.toString()
             request.mobile = binding.tvPhoneNo.text.toString()
             request.address = binding.tvVillage.text.toString()
             request.currentMonthOfPregnancy =
@@ -101,9 +102,9 @@ class PregnantWomanScreeningFragment : FragmentBase() {
             request.husbandName = binding.tvHusbandName.text.toString()
             request.womenName = binding.tvName.text.toString()
 
-            mPatientInfo?.id?.let {
+            mPatientInfoId?.let {
                 viewModel.callPregnantWomanUpdateScreeningApi(
-                    it.toLong(),
+                    it,
                     request
                 )
             }
@@ -115,7 +116,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
      */
     private fun setDataObservers() {
         viewModel.apply {
-            pregnantWomanScreeningResponse.observe(viewLifecycleOwner) {
+            pregnantWomanUpdateScreeningResponse.observe(viewLifecycleOwner) {
                 when (it) {
                     is ResponseHandler.Loading -> {
                         showProgressBar()
@@ -136,7 +137,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                 }
             }
 
-            pregnantWomanGetScreeningResponse.observe(viewLifecycleOwner) {
+            pregnantWomanGetScreeningAllResponse.observe(viewLifecycleOwner) {
                 when (it) {
                     is ResponseHandler.Loading -> {
                         showProgressBar()
@@ -145,19 +146,22 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                     is ResponseHandler.OnSuccessResponse -> {
                         hideProgressBar()
 
-                        it.response?.data?.let { data ->
-                            viewModel.mPregnantWomanGetScreeningInfo = data
+                        it.response?.data?.let { patientData ->
+                            if (patientData.isNotEmpty()) {
+                                val data = patientData[0]
+                                viewModel.mPregnantWomanGetScreeningInfo = data
 
-                            binding.tvName.setText(data.womenName)
-                            binding.tvHusbandName.setText(data.husbandName)
-                            binding.tvDob.setText(data.dob)
-                            binding.tvAge.setText(data.age.toString())
-                            binding.tvVillage.setText(data.village)
-                            binding.tvPhoneNo.setText(data.mobile)
-                            binding.tvLmp.setText(data.dateOfLMP)
-                            binding.tvCurrentPregnancyMonth.setText(data.currentMonthOfPregnancy.toString())
-                            binding.tvHeight.setText(data.height.toString())
-                            binding.tvWeight.setText(data.weight.toString())
+                                binding.tvName.setText(data.womenName)
+                                binding.tvHusbandName.setText(data.husbandName)
+                                binding.tvDob.setText(data.dob)
+                                binding.tvAge.setText(data.age.toString())
+                                binding.tvVillage.setText(data.village)
+                                binding.tvPhoneNo.setText(data.mobile)
+                                binding.tvLmp.setText(data.dateOfLMP)
+                                binding.tvCurrentPregnancyMonth.setText(data.currentMonthOfPregnancy.toString())
+                                binding.tvHeight.setText(data.height.toString())
+                                binding.tvWeight.setText(data.weight.toString())
+                            }
                         }
                     }
 

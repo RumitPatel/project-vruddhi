@@ -5,6 +5,7 @@ import com.project.vruddhi.base.ViewModelBase
 import com.project.vruddhi.network.ResponseData
 import com.project.vruddhi.network.ResponseDataList
 import com.project.vruddhi.network.ResponseHandler
+import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningAllResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanGetScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateCounsellingResponse
@@ -24,13 +25,15 @@ class PregnantWomanViewModel @Inject constructor(
     private val pregnantWomanRepository: PregnantWomanRepository
 ) : ViewModelBase() {
 
-    var mPregnantWomanGetScreeningInfo: PregnantWomanGetScreeningResponse? = null
+    var mPregnantWomanGetScreeningInfo: PregnantWomanGetScreeningAllResponse? = null
 
     var pregnantWomanResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanListResponse>?>>()
     var pregnantWomanGetScreeningResponse =
         SingleLiveEvent<ResponseHandler<ResponseData<PregnantWomanGetScreeningResponse>?>>()
-    var pregnantWomanScreeningResponse =
+    var pregnantWomanGetScreeningAllResponse =
+        SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanGetScreeningAllResponse>?>>()
+    var pregnantWomanUpdateScreeningResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanUpdateScreeningResponse>?>>()
     var pregnantWomanRegistrationResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanUpdateRegistrationResponse>?>>()
@@ -70,6 +73,17 @@ class PregnantWomanViewModel @Inject constructor(
     }
 
     /**
+     * Method to call Pregnant Woman get screening for all data
+     */
+    fun callPregnantWomanGetScreeningAllApi(userId: Long) {
+        viewModelScope.launch {
+            pregnantWomanRepository.callPregnantWomanGetScreeningAllApi(userId).collect {
+                pregnantWomanGetScreeningAllResponse.value = it
+            }
+        }
+    }
+
+    /**
      * Method to call Pregnant Woman update screening api
      */
     fun callPregnantWomanUpdateScreeningApi(
@@ -81,7 +95,7 @@ class PregnantWomanViewModel @Inject constructor(
                 userId,
                 pregnantWomanScreeningUpdateRequest
             ).collect {
-                pregnantWomanScreeningResponse.value = it
+                pregnantWomanUpdateScreeningResponse.value = it
             }
         }
     }
@@ -90,12 +104,11 @@ class PregnantWomanViewModel @Inject constructor(
      * Method to call Pregnant Woman update registration api
      */
     fun callPregnantWomanUpdateRegistrationApi(
-        userId: Long,
+        screeningId: Long,
         request: PregnantWomanUpdateRegistrationRequest
     ) {
         viewModelScope.launch {
-            val request = PregnantWomanUpdateRegistrationRequest()
-            pregnantWomanRepository.callPregnantWomanUpdateRegistrationApi(userId, request)
+            pregnantWomanRepository.callPregnantWomanUpdateRegistrationApi(screeningId, request)
                 .collect {
                     pregnantWomanRegistrationResponse.value = it
                 }

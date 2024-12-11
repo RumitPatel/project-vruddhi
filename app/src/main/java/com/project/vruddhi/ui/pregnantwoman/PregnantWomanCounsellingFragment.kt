@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
 import com.project.vruddhi.base.FragmentBase
-import com.project.vruddhi.databinding.FragmentPregnanatWomanRegistrationBinding
+import com.project.vruddhi.databinding.FragmentPregnanatWomanUpdateCounsellingBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
@@ -20,7 +20,7 @@ import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
  */
 class PregnantWomanCounsellingFragment : FragmentBase() {
 
-    private lateinit var _binding: FragmentPregnanatWomanRegistrationBinding
+    private lateinit var _binding: FragmentPregnanatWomanUpdateCounsellingBinding
     private val binding get() = _binding
     private var mView: View? = null
 
@@ -32,7 +32,7 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
         // Inflate the layout for this fragment
         if (mView == null) {
             _binding =
-                FragmentPregnanatWomanRegistrationBinding.inflate(inflater, container, false)
+                FragmentPregnanatWomanUpdateCounsellingBinding.inflate(inflater, container, false)
             mView = binding.root
         }
         return mView

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
 import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentWelcomeBinding
+import com.project.vruddhi.utils.PrefKey
 
 /**
  * Welcome Screen
@@ -39,7 +40,12 @@ class WelcomeFragment : FragmentBase() {
     override fun makeApiCalls() {}
 
     private fun initComponents() {
-        setListeners()
+
+        if (mPref.getValueBoolean(PrefKey.IS_LOGIN, false)) {
+            findNavController().navigate(R.id.nav_home)
+        } else {
+            setListeners()
+        }
     }
 
     private fun setListeners() {

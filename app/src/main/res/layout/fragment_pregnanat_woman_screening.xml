@@ -31,6 +31,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvName"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,6 +47,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvHusbandName"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -61,6 +63,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvDob"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,6 +79,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvAge"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,6 +95,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvVillage"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -106,6 +111,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvPhoneNo"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,6 +127,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvLmp"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -136,6 +143,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvCurrentPregnancyMonth"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,6 +159,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvHeight"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,6 +184,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/tvWeight"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

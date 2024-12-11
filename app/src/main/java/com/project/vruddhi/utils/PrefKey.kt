@@ -12,4 +12,7 @@ object PrefKey {
     const val TOKEN = "bearerToken"
     const val FIREBASE_TOKEN = "firebaseToken"
     const val IS_UPDATE_TOKEN = "isUpdateToken"
+
+    const val PREF_USER_ID = "pref_user_id"
+    const val PREF_USER_NAME = "pref_user_name"
 }

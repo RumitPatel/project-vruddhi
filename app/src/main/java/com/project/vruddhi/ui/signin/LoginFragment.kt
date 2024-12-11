@@ -15,6 +15,9 @@ import com.project.vruddhi.databinding.FragmentLoginBinding
 import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.signin.viewmodel.LoginViewModel
+import com.project.vruddhi.utils.PrefKey.IS_LOGIN
+import com.project.vruddhi.utils.PrefKey.PREF_USER_ID
+import com.project.vruddhi.utils.PrefKey.PREF_USER_NAME
 
 /**
  * Login Fragment
@@ -90,10 +93,13 @@ class LoginFragment : FragmentBase() {
 
                     is ResponseHandler.OnSuccessResponse -> {
                         hideProgressBar()
+                        val data = it.response?.data
+                        if (data != null) {
+                            mPref.setValueBoolean(IS_LOGIN, true)
+                            data.id?.let { it1 -> mPref.setValueLong(PREF_USER_ID, it1.toLong()) }
+                            mPref.setValueString(PREF_USER_NAME, data.username.toString())
 
-                        it.response?.data?.let {
                             findNavController().navigate(R.id.nav_home)
-                            //startActivity(Intent(requireContext(), HomeActivity::class.java))
                         }
                     }
 

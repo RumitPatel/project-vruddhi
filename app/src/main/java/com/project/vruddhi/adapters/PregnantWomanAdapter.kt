@@ -2,6 +2,7 @@ package com.project.vruddhi.adapters
 
 import android.text.TextUtils
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.vruddhi.databinding.ItemPregnantWomanListBinding
@@ -23,6 +24,7 @@ class PregnantWomanAdapter(
         val patientName = patientInfo.womenName
         val patientAge = patientInfo.age
         val patientCity = patientInfo.village
+        val status = patientInfo.status
 
 
         holder.binding.tvPatientName.text =
@@ -33,11 +35,15 @@ class PregnantWomanAdapter(
 
         holder.binding.tvPatientCity.text =
             if (!TextUtils.isEmpty(patientCity)) (patientCity) else ""
+        holder.binding.tvDotCity.visibility =
+            if (!TextUtils.isEmpty(patientCity)) View.VISIBLE else View.GONE
+
+        holder.binding.tvStatus.text =
+            if (!TextUtils.isEmpty(status)) (status) else ""
 
         holder.binding.llItemPregnantWoman.setOnClickListener {
             onPatientClick(patientInfo)
         }
-
     }
 
     override fun getItemCount(): Int {

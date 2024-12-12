@@ -83,6 +83,7 @@
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />
 
@@ -114,6 +115,7 @@
                     android:id="@+id/tvPhoneNo"
                     style="@style/editText1"
                     android:layout_width="match_parent"
+                    android:inputType="phone"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />
@@ -130,6 +132,7 @@
                     android:id="@+id/tvLmp"
                     style="@style/editText1"
                     android:layout_width="match_parent"
+                    android:inputType="date"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />
@@ -147,6 +150,7 @@
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />
 
@@ -163,6 +167,7 @@
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />
 
@@ -186,6 +191,7 @@
                 <EditText
                     android:id="@+id/tvWeight"
                     style="@style/editText1"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"

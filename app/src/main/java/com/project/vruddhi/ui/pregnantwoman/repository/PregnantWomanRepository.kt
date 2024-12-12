@@ -14,6 +14,7 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistratio
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateAndExitRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateCounsellingRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import kotlinx.coroutines.flow.Flow
@@ -86,5 +87,17 @@ class PregnantWomanRepository constructor(
         userId: String,
     ): Flow<ResponseHandler<ResponseDataList<PregnantWomanUpdateCounsellingResponse>?>> {
         return makeAPICallList { apiInterface.pregnantWomenUpdateCounselling() }
+    }
+
+    suspend fun callPregnantWomanUpdateAndExitApi(
+        userId: Long,
+        request: PregnantWomanUpdateAndExitRequest
+    ): Flow<ResponseHandler<ResponseData<Unit>?>> {
+        return makeAPICall {
+            apiInterface.callPregnantWomanUpdateAndExitApi(
+                id = userId,
+                request = request
+            )
+        }
     }
 }

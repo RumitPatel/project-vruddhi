@@ -14,6 +14,7 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistratio
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateAndExitRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateCounsellingRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.pregnantwoman.repository.PregnantWomanRepository
@@ -46,6 +47,9 @@ class PregnantWomanViewModel @Inject constructor(
 
     var pregnantWomanGetCounsellingResponse =
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanCounsellingResponse>?>>()
+
+    var pregnantWomanUpdateAndExitResponse =
+        SingleLiveEvent<ResponseHandler<ResponseData<Unit>?>>()
 
     fun init() {
         pregnantWomanResponse =
@@ -156,6 +160,20 @@ class PregnantWomanViewModel @Inject constructor(
         viewModelScope.launch {
             pregnantWomanRepository.callPregnantWomanUpdateCounsellingApi(userId).collect {
                 pregnantWomanCounsellingResponse.value = it
+            }
+        }
+    }
+
+    /**
+     * Method to call Pregnant Woman update counselling api
+     */
+    fun callPregnantWomanUpdateAndExitApi(
+        userId: Long,
+        request: PregnantWomanUpdateAndExitRequest
+    ) {
+        viewModelScope.launch {
+            pregnantWomanRepository.callPregnantWomanUpdateAndExitApi(userId, request).collect {
+                pregnantWomanUpdateAndExitResponse.value = it
             }
         }
     }

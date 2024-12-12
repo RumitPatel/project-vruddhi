@@ -31,6 +31,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <RadioGroup
+                    android:id="@+id/rgDeliveryOfChild"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/radio_group_margin_top"
@@ -39,14 +40,14 @@
                     android:padding="@dimen/radio_group_padding">
 
                     <RadioButton
-                        android:id="@+id/rbYesAnyIllness"
+                        android:id="@+id/rbDeliveryOfChildYes"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/yes" />
 
                     <RadioButton
-                        android:id="@+id/rbNoAnyIllness"
+                        android:id="@+id/rbDeliveryOfChildNo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -63,6 +64,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/etDateOfDelivery"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -79,6 +81,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/etPlaceOfDelivery"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,19 +97,19 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cb_nutrition_kit_given"
+                    android:id="@+id/cbNutritionKitGiven"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/normal" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cb_hand_washing_soap_given"
+                    android:id="@+id/cbHandWashingSoapGiven"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cesarean" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cb_counselled_about_diet_during_pregnancy"
+                    android:id="@+id/cbCounselledAboutDietDuringPregnancy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/instrumentation" />
@@ -120,11 +123,13 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbPreTerm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/preterm" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbFullTerm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/full_term" />
@@ -138,6 +143,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/etBirthWeight"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -183,6 +189,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/etComplication"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -228,6 +235,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/etNameOfVillage"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -273,6 +281,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <RadioGroup
+                    android:id="@+id/rgDeathOfMother"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/radio_group_margin_top"
@@ -281,12 +290,14 @@
                     android:padding="@dimen/radio_group_padding">
 
                     <RadioButton
+                        android:id="@+id/rbDeathOfMotherYes"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/yes" />
 
                     <RadioButton
+                        android:id="@+id/rbDeathOfMotherNo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -303,6 +314,7 @@
                     android:textSize="@dimen/form_text_size" />
 
                 <EditText
+                    android:id="@+id/etReasonOfDeath"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

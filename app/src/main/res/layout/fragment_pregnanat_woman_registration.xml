@@ -34,6 +34,7 @@
                     android:id="@+id/tvNoOfPregnancy"
                     style="@style/editText1"
                     android:layout_width="match_parent"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />
@@ -59,6 +60,7 @@
                     android:id="@+id/tvNoOfChild"
                     style="@style/editText1"
                     android:layout_width="match_parent"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />
@@ -75,6 +77,7 @@
                     android:id="@+id/tvNoOfAbortion"
                     style="@style/editText1"
                     android:layout_width="match_parent"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
                     android:textSize="@dimen/form_text_size" />

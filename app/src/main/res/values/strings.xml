@@ -91,12 +91,14 @@
     <string name="miscarriage">Miscarriage</string>
     <string name="death_of_mother">Death of Mother</string>
     <string name="reason_of_death">Reason of death</string>
-
+    <string name="submit">Submit</string>
+    <string name="dark_dot">•</string>
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>
     <string name="temp_string_2">Patient 1: Meenaben parmar</string>
     <string name="temp_string_3">32 years</string>
-    <string name="temp_string_4">• Rampur</string>
+    <string name="temp_string_4">Rampur</string>
+    <string name="temp_string_5">received</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

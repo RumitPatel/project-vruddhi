@@ -19,6 +19,9 @@ data class PregnantWomanListResponse(
     @field:SerializedName("village")
     val village: String? = null,
 
+    @field:SerializedName("status")
+    val status: String? = null,
+
     @field:SerializedName("age")
     val age: Int? = null
 ) : Parcelable

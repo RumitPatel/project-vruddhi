@@ -64,7 +64,7 @@
         <action
             android:id="@+id/action_pregnantWomanUpdateCounsellingFragment_to_pregnantWomanListFragment"
             app:destination="@id/pregnantWomanListFragment"
-            app:popUpTo="@id/pregnantWomanUpdateCounsellingFragment"
+            app:popUpTo="@id/pregnantWomanListFragment"
             app:popUpToInclusive="false" />
     </fragment>
 </navigation>

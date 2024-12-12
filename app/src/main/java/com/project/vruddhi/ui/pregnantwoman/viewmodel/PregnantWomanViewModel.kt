@@ -49,7 +49,7 @@ class PregnantWomanViewModel @Inject constructor(
         SingleLiveEvent<ResponseHandler<ResponseDataList<PregnantWomanCounsellingResponse>?>>()
 
     var pregnantWomanUpdateAndExitResponse =
-        SingleLiveEvent<ResponseHandler<ResponseData<Unit>?>>()
+        SingleLiveEvent<ResponseHandler<ResponseData<String>?>>()
 
     fun init() {
         pregnantWomanResponse =

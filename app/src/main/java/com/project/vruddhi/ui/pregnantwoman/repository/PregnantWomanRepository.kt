@@ -92,7 +92,7 @@ class PregnantWomanRepository constructor(
     suspend fun callPregnantWomanUpdateAndExitApi(
         userId: Long,
         request: PregnantWomanUpdateAndExitRequest
-    ): Flow<ResponseHandler<ResponseData<Unit>?>> {
+    ): Flow<ResponseHandler<ResponseData<String>?>> {
         return makeAPICall {
             apiInterface.callPregnantWomanUpdateAndExitApi(
                 id = userId,

@@ -114,7 +114,7 @@ interface ApiInterface {
         @Query("endpoint") endPoint: String = ENDPOINT_UPDATE_AND_EXIT,
         @Query(ID) id: Long,
         @Body request: PregnantWomanUpdateAndExitRequest
-    ): Response<ResponseData<Unit>>
+    ): Response<ResponseData<String>>
 
     /*@FormUrlEncoded
     @POST(DEV_BASE_URL)

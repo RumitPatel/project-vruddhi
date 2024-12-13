@@ -3,6 +3,7 @@ package com.project.vruddhi.network
 import com.project.vruddhi.BuildConfig
 import com.project.vruddhi.BuildConfig.DEV_BASE_URL
 import com.project.vruddhi.BuildConfig.ENDPOINT
+import com.project.vruddhi.BuildConfig.ENDPOINT_UPDATE_AND_EXIT
 import com.project.vruddhi.BuildConfig.ENDPOINT_UPDATE_REGISTRATION
 import com.project.vruddhi.BuildConfig.ENDPOINT_UPDATE_SERVICES
 import com.project.vruddhi.BuildConfig.ID
@@ -20,6 +21,7 @@ import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateRegistratio
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateScreeningResponse
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanUpdateServicesResponse
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
+import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateAndExitRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateCounsellingRequest
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.signin.model.response.LoginResponseModel
@@ -106,6 +108,13 @@ interface ApiInterface {
     @PUT(DEV_BASE_URL + PW_SCREENING + UPDATE_COUNSELLING)
     suspend fun pregnantWomenUpdateCounselling(
     ): Response<ResponseDataList<PregnantWomanUpdateCounsellingResponse>>
+
+    @PUT(DEV_BASE_URL + PW_SCREENING)
+    suspend fun callPregnantWomanUpdateAndExitApi(
+        @Query("endpoint") endPoint: String = ENDPOINT_UPDATE_AND_EXIT,
+        @Query(ID) id: Long,
+        @Body request: PregnantWomanUpdateAndExitRequest
+    ): Response<ResponseData<String>>
 
     /*@FormUrlEncoded
     @POST(DEV_BASE_URL)

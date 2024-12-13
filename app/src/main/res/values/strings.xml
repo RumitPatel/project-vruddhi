@@ -93,6 +93,8 @@
     <string name="reason_of_death">Reason of death</string>
     <string name="submit">Submit</string>
     <string name="dark_dot">•</string>
+    <string name="logout">Logout</string>
+    <string name="logout_warning">Are you sure you want to logout?</string>
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>
     <string name="temp_string_2">Patient 1: Meenaben parmar</string>

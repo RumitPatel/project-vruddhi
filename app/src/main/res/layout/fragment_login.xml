@@ -34,7 +34,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/form_margin_top"
                 android:hint="@string/email_hint"
-                android:text="deval.bhavsar@gmail.com"
                 android:inputType="textEmailAddress"
                 android:textSize="@dimen/form_text_size" />
 
@@ -53,7 +52,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/form_margin_top"
                 android:hint="@string/password_hint"
-                android:text="Deval@1979"
                 android:inputType="textPassword"
                 android:textSize="@dimen/form_text_size" />
 

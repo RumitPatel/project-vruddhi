@@ -1,5 +1,6 @@
 package com.project.vruddhi.ui.home
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import com.project.vruddhi.R
 import com.project.vruddhi.activities.MainActivity
 import com.project.vruddhi.base.FragmentBase
 import com.project.vruddhi.databinding.FragmentHomeBinding
+
 
 /**
  * Home Fragment class
@@ -53,8 +55,16 @@ class HomeFragment : FragmentBase() {
         }
 
         binding?.tvDashboard?.setOnClickListener {
-            (activity as MainActivity).logoutApp()
+            AlertDialog.Builder(context)
+                .setTitle(getString(R.string.logout))
+                .setMessage(getString(R.string.logout_warning))
+                .setPositiveButton(android.R.string.yes, { dialog, which ->
+                    (activity as MainActivity).logoutApp()
+                })
+
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show()
         }
     }
-
 }

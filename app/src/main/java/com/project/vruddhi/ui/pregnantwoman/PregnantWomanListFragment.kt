@@ -1,10 +1,12 @@
 package com.project.vruddhi.ui.pregnantwoman
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.project.vruddhi.R
@@ -31,7 +33,8 @@ class PregnantWomanListFragment : FragmentBase() {
     private val viewModel: PregnantWomanViewModel by activityViewModels()
 
     private lateinit var adapterPregnantWoman: PregnantWomanAdapter
-    private val listPregnantWoman = ArrayList<PregnantWomanListResponse>()
+    private val mPregnantWomen = ArrayList<PregnantWomanListResponse>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,8 +52,19 @@ class PregnantWomanListFragment : FragmentBase() {
     }
 
     override fun initializeScreenVariables() {
+        viewModel.init()
+        prepareRecyclerView(mPregnantWomen)
+        setRecyclerView()
+        setDataObservers()
+        setSearch()
+    }
 
-        adapterPregnantWoman = PregnantWomanAdapter(listPregnantWoman) {
+    override fun makeApiCalls() {
+        viewModel.callPregnantWomanListApi()
+    }
+
+    private fun prepareRecyclerView(pregnantWomen: ArrayList<PregnantWomanListResponse>) {
+        adapterPregnantWoman = PregnantWomanAdapter(pregnantWomen) {
             val bundle = Bundle()
             if (it.id != null) {
                 bundle.putLong(PREGNANT_WOMAN_PATIENT_INFO_ID, it.id)
@@ -60,14 +74,6 @@ class PregnantWomanListFragment : FragmentBase() {
                 bundle
             )
         }
-
-        viewModel.init()
-        setRecyclerView()
-        setDataObservers()
-    }
-
-    override fun makeApiCalls() {
-        viewModel.callPregnantWomanListApi()
     }
 
     /**
@@ -79,13 +85,40 @@ class PregnantWomanListFragment : FragmentBase() {
     }
 
     /**
+     * Method to set implementSearch
+     */
+    private fun setSearch() {
+        binding.etPatients.doOnTextChanged { text, _, _, _ ->
+            if (text != null && !TextUtils.isEmpty(text)) {
+                prepareRecyclerView(getFilteredList(text.toString()))
+                setRecyclerView()
+            } else {
+                prepareRecyclerView(mPregnantWomen)
+                setRecyclerView()
+            }
+        }
+    }
+
+    private fun getFilteredList(text: String): ArrayList<PregnantWomanListResponse> {
+        val pregnantWomen = ArrayList<PregnantWomanListResponse>()
+
+        for (item in mPregnantWomen) {
+            if (item.womenName?.lowercase()?.contains(text.lowercase()) == true) {
+                pregnantWomen.add(item)
+            }
+        }
+
+        return pregnantWomen
+    }
+
+    /**
      * Method to set data observers
      */
     private fun setDataObservers() {
 
         viewModel.apply {
 
-            pregnantWomanResponse?.observe(viewLifecycleOwner) {
+            pregnantWomanResponse.observe(viewLifecycleOwner) {
                 when (it) {
                     is ResponseHandler.Loading -> {
                         showProgressBar()
@@ -95,8 +128,8 @@ class PregnantWomanListFragment : FragmentBase() {
                         hideProgressBar()
 
                         it.response?.data?.let {
-                            listPregnantWoman.clear()
-                            listPregnantWoman.addAll(ArrayList(it))
+                            mPregnantWomen.clear()
+                            mPregnantWomen.addAll(ArrayList(it))
                             adapterPregnantWoman.notifyDataSetChanged()
                         }
                     }

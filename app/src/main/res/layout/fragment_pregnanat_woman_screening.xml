@@ -30,12 +30,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvName"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -46,12 +47,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvHusbandName"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -62,12 +64,14 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvDob"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/date_hint"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="date"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -78,13 +82,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvAge"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -95,12 +99,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvVillage"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -111,13 +116,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvPhoneNo"
                     style="@style/editText1"
                     android:layout_width="match_parent"
-                    android:inputType="phone"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="phone"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -128,13 +133,14 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvLmp"
                     style="@style/editText1"
                     android:layout_width="match_parent"
-                    android:inputType="date"
+                    android:hint="@string/date_hint"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="date"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -145,13 +151,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvCurrentPregnancyMonth"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -162,13 +168,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvHeight"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -188,13 +194,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvWeight"
                     style="@style/editText1"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView

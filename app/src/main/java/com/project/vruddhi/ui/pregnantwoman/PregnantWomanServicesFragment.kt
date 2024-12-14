@@ -14,6 +14,7 @@ import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateCounsellingRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
+import com.project.vruddhi.utils.checkNullAndSet
 
 /**
  * Pregnant Woman screening class
@@ -211,9 +212,9 @@ class PregnantWomanServicesFragment : FragmentBase() {
                                     if (i.counsNo == 1) {
                                         val data = i
 
-                                        binding.tvWeight1.setText(data.weight.toString())
-                                        binding.tvHeight1.setText(data.height.toString())
-                                        binding.tvHemoglobinLevel1.setText(data.hemoglobinLevel.toString())
+                                        binding.tvWeight1.checkNullAndSet(data.weight.toString())
+                                        binding.tvHeight1.checkNullAndSet(data.height.toString())
+                                        binding.tvHemoglobinLevel1.checkNullAndSet(data.hemoglobinLevel.toString())
                                         binding.cbNutritionKitGiven.isChecked =
                                             if (data.isNutritionKitGiven == 1) true else false
                                         binding.cbHandWashingSoapGiven.isChecked =
@@ -226,14 +227,14 @@ class PregnantWomanServicesFragment : FragmentBase() {
                                             if (data.isHandwashCounselled == 1) true else false
                                         binding.counselledAboutTreatmentForAnemia.isChecked =
                                             if (data.isAnaemiaCounselled == 1) true else false
-                                        binding.tvComplicationNote.setText(data.complications)
+                                        binding.tvComplicationNote.checkNullAndSet(data.complications)
                                     }
                                     if (i.counsNo == 2) {
                                         val data = i
 
-                                        binding.tvWeight2.setText(data.weight.toString())
-                                        binding.tvHeight2.setText(data.height.toString())
-                                        binding.tvHemoglobinLevel2.setText(data.hemoglobinLevel.toString())
+                                        binding.tvWeight2.checkNullAndSet(data.weight.toString())
+                                        binding.tvHeight2.checkNullAndSet(data.height.toString())
+                                        binding.tvHemoglobinLevel2.checkNullAndSet(data.hemoglobinLevel.toString())
                                         binding.cbNutritionKitGiven2.isChecked =
                                             if (data.isNutritionKitGiven == 1) true else false
                                         binding.cbHandWashingSoapGiven2.isChecked =
@@ -246,14 +247,14 @@ class PregnantWomanServicesFragment : FragmentBase() {
                                             if (data.isHandwashCounselled == 1) true else false
                                         binding.counselledAboutTreatmentForAnemia2.isChecked =
                                             if (data.isAnaemiaCounselled == 1) true else false
-                                        binding.tvComplicationNote2.setText(data.complications)
+                                        binding.tvComplicationNote2.checkNullAndSet(data.complications)
                                     }
                                     if (i.counsNo == 3) {
                                         val data = i
 
-                                        binding.tvWeight3.setText(data.weight.toString())
-                                        binding.tvHeight3.setText(data.height.toString())
-                                        binding.tvHemoglobinLevel3.setText(data.hemoglobinLevel.toString())
+                                        binding.tvWeight3.checkNullAndSet(data.weight.toString())
+                                        binding.tvHeight3.checkNullAndSet(data.height.toString())
+                                        binding.tvHemoglobinLevel3.checkNullAndSet(data.hemoglobinLevel.toString())
                                         binding.cbNutritionKitGiven3.isChecked =
                                             if (data.isNutritionKitGiven == 1) true else false
                                         binding.cbHandWashingSoapGiven3.isChecked =
@@ -266,7 +267,7 @@ class PregnantWomanServicesFragment : FragmentBase() {
                                             if (data.isHandwashCounselled == 1) true else false
                                         binding.counselledAboutTreatmentForAnemia3.isChecked =
                                             if (data.isAnaemiaCounselled == 1) true else false
-                                        binding.tvComplicationNote3.setText(data.complications)
+                                        binding.tvComplicationNote3.checkNullAndSet(data.complications)
                                     }
                                 }
                             }

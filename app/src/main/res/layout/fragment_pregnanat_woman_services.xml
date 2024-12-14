@@ -10,22 +10,22 @@
         <include
             android:id="@+id/includeProgress"
             layout="@layout/screening_progress"
-            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@color/white"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/includeProgress"
+            android:animateLayoutChanges="true"
             app:layout_constraintBottom_toTopOf="@+id/btnNext"
-            android:animateLayoutChanges="true">
+            app:layout_constraintTop_toBottomOf="@+id/includeProgress">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:animateLayoutChanges="true">
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -36,15 +36,15 @@
                         android:id="@+id/tvScreening1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/form_margin_top"
-                        android:text="Screening 1"
+                        android:background="@color/teal_200"
+                        android:drawableEnd="@drawable/selector_arrow_dropdown"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/screening_1"
                         android:textColor="@color/black"
                         android:textSize="@dimen/form_text_size"
-                        android:background="@color/teal_200"
-                        android:padding="@dimen/_10sdp"
-                        android:drawableEnd="@drawable/selector_arrow_dropdown"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <LinearLayout
                         android:id="@+id/llScreening1"
@@ -63,7 +63,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvWeight1"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvHeight1"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvHemoglobinLevel1"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -210,7 +210,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvComplicationNote"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -231,15 +231,15 @@
                         android:id="@+id/tvScreening2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/form_margin_top"
-                        android:text="Screening 2"
+                        android:background="@color/teal_200"
+                        android:drawableEnd="@drawable/selector_arrow_dropdown"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/screening_2"
                         android:textColor="@color/black"
                         android:textSize="@dimen/form_text_size"
-                        android:background="@color/teal_200"
-                        android:padding="@dimen/_10sdp"
-                        android:drawableEnd="@drawable/selector_arrow_dropdown"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <LinearLayout
                         android:id="@+id/llScreening2"
@@ -258,7 +258,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvWeight2"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -274,7 +274,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvHeight2"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -290,7 +290,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvHemoglobinLevel2"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -405,7 +405,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvComplicationNote2"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -426,15 +426,15 @@
                         android:id="@+id/tvScreening3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/form_margin_top"
-                        android:text="Screening 3"
+                        android:background="@color/teal_200"
+                        android:drawableEnd="@drawable/selector_arrow_dropdown"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/screening_3"
                         android:textColor="@color/black"
                         android:textSize="@dimen/form_text_size"
-                        android:background="@color/teal_200"
-                        android:padding="@dimen/_10sdp"
-                        android:drawableEnd="@drawable/selector_arrow_dropdown"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <LinearLayout
                         android:id="@+id/llScreening3"
@@ -453,7 +453,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvWeight3"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -469,7 +469,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvHeight3"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -485,7 +485,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvHemoglobinLevel3"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -600,7 +600,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/form_text_size" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/tvComplicationNote3"
                             style="@style/editText1"
                             android:layout_width="match_parent"
@@ -624,7 +624,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

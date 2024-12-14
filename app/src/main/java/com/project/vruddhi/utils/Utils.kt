@@ -43,6 +43,7 @@ fun String?.isNotNullOrBlank(): Boolean {
             && !TextUtils.isEmpty(this)
             && !this.equals("", true)
             && !this.equals("null", true)
+            && !this.equals("0000-00-00", true)
 }
 
 fun TextView.checkNullAndSet(text: String?) {

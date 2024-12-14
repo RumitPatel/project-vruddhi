@@ -63,13 +63,14 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etDateOfDelivery"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:hint="@string/date_of_birth_hint"
+                    android:hint="@string/date_hint"
+                    android:inputType="date"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -80,12 +81,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etPlaceOfDelivery"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -142,12 +144,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etBirthWeight"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -188,12 +191,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etComplication"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -234,12 +238,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etNameOfVillage"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -313,12 +318,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etReasonOfDeath"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <Button

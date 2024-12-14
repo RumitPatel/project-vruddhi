@@ -25,7 +25,7 @@ class PregnantWomanAdapter(
         val patientAge = patientInfo.age
         val patientCity = patientInfo.village
 
-        holder.binding.tvPatientName.checkNullAndSet(patientInfo.womenName)
+        holder.binding.tvPatientName.setText(patientInfo.womenName)
         holder.binding.tvStatus.checkNullAndSet(patientInfo.status)
         holder.binding.tvPatientCity.checkNullAndSet(patientCity)
         holder.binding.tvDotCity.visibility =

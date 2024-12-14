@@ -30,13 +30,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvNoOfPregnancy"
                     style="@style/editText1"
                     android:layout_width="match_parent"
-                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -56,13 +56,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvNoOfChild"
                     style="@style/editText1"
                     android:layout_width="match_parent"
-                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -73,13 +73,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvNoOfAbortion"
                     style="@style/editText1"
                     android:layout_width="match_parent"
-                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="number"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -90,12 +90,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvEducationOfMother"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -106,12 +107,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvOccupation"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -154,12 +156,13 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/tvIllnessNote"
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView

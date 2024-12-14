@@ -15,6 +15,7 @@ import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateRegistrationRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 import com.project.vruddhi.utils.PrefKey
+import com.project.vruddhi.utils.checkNullAndSet
 
 /**
  * Pregnant Woman screening class
@@ -62,11 +63,11 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
      */
     private fun setPatientData() {
         viewModel.mPregnantWomanGetScreeningInfo?.apply {
-            binding.tvNoOfPregnancy.setText(noOfPregnancy.toString())
-            binding.tvNoOfChild.setText(noOfLiveChildren.toString())
-            binding.tvNoOfAbortion.setText(noOfAbortion.toString())
-            binding.tvEducationOfMother.setText(education.toString())
-            binding.tvOccupation.setText(occupation.toString())
+            binding.tvNoOfPregnancy.checkNullAndSet(noOfPregnancy.toString())
+            binding.tvNoOfChild.checkNullAndSet(noOfLiveChildren.toString())
+            binding.tvNoOfAbortion.checkNullAndSet(noOfAbortion.toString())
+            binding.tvEducationOfMother.checkNullAndSet(education.toString())
+            binding.tvOccupation.checkNullAndSet(occupation.toString())
 
         }
     }

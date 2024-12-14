@@ -1,7 +1,9 @@
 package com.project.vruddhi.utils
 
 import android.content.Context
+import android.text.TextUtils
 import android.view.View
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,4 +36,15 @@ fun setGridLayoutManager(context: Context, recyclerView: RecyclerView, count: In
 fun setHorizontalLayoutManager(context: Context, recyclerView: RecyclerView) {
     val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     recyclerView.layoutManager = linearLayoutManager
+}
+
+fun String?.isNotNullOrBlank(): Boolean {
+    return this != null
+            && !TextUtils.isEmpty(this)
+            && !this.equals("", true)
+            && !this.equals("null", true)
+}
+
+fun TextView.checkNullAndSet(text: String?) {
+    this.text = if (text.isNotNullOrBlank()) text else ""
 }

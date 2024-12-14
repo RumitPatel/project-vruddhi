@@ -14,6 +14,7 @@ import com.project.vruddhi.extensions.setTitle
 import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateAndExitRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
+import com.project.vruddhi.utils.checkNullAndSet
 
 /**
  * Pregnant Woman screening class
@@ -30,7 +31,6 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         if (mView == null) {
             _binding =
                 FragmentPregnanatWomanUpdateCounsellingBinding.inflate(inflater, container, false)
@@ -56,8 +56,8 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
     }
 
     private fun setPatientData() {
-        binding.etDateOfDelivery.setText(viewModel.mPregnantWomanGetScreeningInfo?.dODate)
-        binding.etPlaceOfDelivery.setText(viewModel.mPregnantWomanGetScreeningInfo?.pODate)
+        binding.etDateOfDelivery.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.dODate)
+        binding.etPlaceOfDelivery.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.pODate)
         binding.cbNutritionKitGiven.isChecked =
             if (viewModel.mPregnantWomanGetScreeningInfo?.isNutritionKitGiven == 1) true else false
         binding.cbHandWashingSoapGiven.isChecked =
@@ -66,9 +66,9 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
             if (viewModel.mPregnantWomanGetScreeningInfo?.isDietCounselled == 1) true else false
         //binding.cbPreTerm.isChecked = if (viewModel.mPregnantWomanGetScreeningInfo?.ist == 1) true else false
 
-        binding.etBirthWeight.setText(viewModel.mPregnantWomanGetScreeningInfo?.birthWeight.toString())
-        binding.etNameOfVillage.setText(viewModel.mPregnantWomanGetScreeningInfo?.village.toString())
-        binding.etReasonOfDeath.setText(viewModel.mPregnantWomanGetScreeningInfo?.deathReason.toString())
+        binding.etBirthWeight.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.birthWeight.toString())
+        binding.etNameOfVillage.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.village.toString())
+        binding.etReasonOfDeath.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.deathReason.toString())
         //binding.rbDeathOfMotherYes.isChecked = if (viewModel.mPregnantWomanGetScreeningInfo.mo)
     }
 

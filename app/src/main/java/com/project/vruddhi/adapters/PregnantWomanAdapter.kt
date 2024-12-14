@@ -1,12 +1,13 @@
 package com.project.vruddhi.adapters
 
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.vruddhi.databinding.ItemPregnantWomanListBinding
 import com.project.vruddhi.ui.pregnantwoman.model.PregnantWomanListResponse
+import com.project.vruddhi.utils.checkNullAndSet
+import com.project.vruddhi.utils.isNotNullOrBlank
 
 class PregnantWomanAdapter(
     private val mPatientInfos: List<PregnantWomanListResponse>,
@@ -21,25 +22,17 @@ class PregnantWomanAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val patientInfo = mPatientInfos[holder.adapterPosition]
-        val patientName = patientInfo.womenName
         val patientAge = patientInfo.age
         val patientCity = patientInfo.village
-        val status = patientInfo.status
 
-
-        holder.binding.tvPatientName.text =
-            if (!TextUtils.isEmpty(patientName)) (patientName) else ""
+        holder.binding.tvPatientName.checkNullAndSet(patientInfo.womenName)
+        holder.binding.tvStatus.checkNullAndSet(patientInfo.status)
+        holder.binding.tvPatientCity.checkNullAndSet(patientCity)
+        holder.binding.tvDotCity.visibility =
+            if (patientCity.isNotNullOrBlank()) View.VISIBLE else View.GONE
 
         holder.binding.tvPatientAge.text =
-            if (!TextUtils.isEmpty(patientAge.toString())) ("$patientAge years") else ""
-
-        holder.binding.tvPatientCity.text =
-            if (!TextUtils.isEmpty(patientCity)) (patientCity) else ""
-        holder.binding.tvDotCity.visibility =
-            if (!TextUtils.isEmpty(patientCity)) View.VISIBLE else View.GONE
-
-        holder.binding.tvStatus.text =
-            if (!TextUtils.isEmpty(status)) (status) else ""
+            if (patientAge.toString().isNotNullOrBlank()) ("$patientAge years") else ""
 
         holder.binding.llItemPregnantWoman.setOnClickListener {
             onPatientClick(patientInfo)

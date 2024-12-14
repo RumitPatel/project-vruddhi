@@ -26,7 +26,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/tvPatientAge"
@@ -50,8 +51,6 @@
                 android:id="@+id/tvPatientCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/_4sdp"
-                android:paddingEnd="@dimen/_4sdp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/_14sdp"
                 tools:text="@string/temp_string_4" />
@@ -62,17 +61,15 @@
                 android:paddingStart="@dimen/_4sdp"
                 android:paddingEnd="@dimen/_4sdp"
                 android:text="@string/dark_dot"
-                android:textColor="@color/lightGray"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/_14sdp" />
 
             <TextView
                 android:id="@+id/tvStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/_4sdp"
-                android:paddingEnd="@dimen/_4sdp"
-                android:textColor="@color/lightGray"
-                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
                 tools:text="@string/temp_string_5" />
         </TableRow>
 

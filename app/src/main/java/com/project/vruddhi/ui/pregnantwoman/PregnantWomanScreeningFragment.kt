@@ -15,6 +15,7 @@ import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreeningUpdateRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO_ID
+import com.project.vruddhi.utils.checkNullAndSet
 
 /**
  * Pregnant Woman screening class
@@ -151,16 +152,16 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                                 val data = patientData[0]
                                 viewModel.mPregnantWomanGetScreeningInfo = data
 
-                                binding.tvName.setText(data.womenName)
-                                binding.tvHusbandName.setText(data.husbandName)
-                                binding.tvDob.setText(data.dob)
-                                binding.tvAge.setText(data.age.toString())
-                                binding.tvVillage.setText(data.village)
-                                binding.tvPhoneNo.setText(data.mobile)
-                                binding.tvLmp.setText(data.dateOfLMP)
-                                binding.tvCurrentPregnancyMonth.setText(data.currentMonthOfPregnancy.toString())
-                                binding.tvHeight.setText(data.height.toString())
-                                binding.tvWeight.setText(data.weight.toString())
+                                binding.tvName.checkNullAndSet(data.womenName)
+                                binding.tvHusbandName.checkNullAndSet(data.husbandName)
+                                binding.tvDob.checkNullAndSet(data.dob)
+                                binding.tvAge.checkNullAndSet(data.age.toString())
+                                binding.tvVillage.checkNullAndSet(data.village)
+                                binding.tvPhoneNo.checkNullAndSet(data.mobile)
+                                binding.tvLmp.checkNullAndSet(data.dateOfLMP)
+                                binding.tvCurrentPregnancyMonth.checkNullAndSet(data.currentMonthOfPregnancy.toString())
+                                binding.tvHeight.checkNullAndSet(data.height.toString())
+                                binding.tvWeight.checkNullAndSet(data.weight.toString())
                             }
                         }
                     }

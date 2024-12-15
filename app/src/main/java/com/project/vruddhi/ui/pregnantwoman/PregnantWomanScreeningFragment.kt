@@ -88,8 +88,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
-        binding.btnNext.setOnClickListener {
-
+        binding.btnSaveAndNext.setOnClickListener {
             val request = PregnantWomanScreeningUpdateRequest()
             request.age = binding.tvAge.text.toString().toInt()
             request.dob = binding.tvDob.text.toString()
@@ -110,6 +109,10 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                 )
             }
         }
+
+        binding.btnSkipToNext.setOnClickListener {
+            navigateNext()
+        }
     }
 
     /**
@@ -126,7 +129,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                     is ResponseHandler.OnSuccessResponse -> {
                         hideProgressBar()
                         showSnackBar(it.response?.message)
-                        findNavController().navigate(R.id.action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment)
+                        navigateNext()
                     }
 
                     is ResponseHandler.OnFailed -> {
@@ -175,5 +178,9 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                 }
             }
         }
+    }
+
+    private fun navigateNext() {
+        findNavController().navigate(R.id.action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment)
     }
 }

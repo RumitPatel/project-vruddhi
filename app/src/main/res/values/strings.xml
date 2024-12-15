@@ -32,6 +32,8 @@
     <string name="dashboard">Dashboard</string>
     <string name="search">Search</string>
     <string name="next">Next</string>
+    <string name="save_and_next">Save and Next</string>
+    <string name="skip_to_next">Skip to Next</string>
     <string name="name">Name</string>
     <string name="husband_name">Husband Name</string>
     <string name="full_name">Full Name</string>

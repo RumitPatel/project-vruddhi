@@ -93,7 +93,7 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
-        binding.btnNext.setOnClickListener {
+        binding.btnSaveAndNext.setOnClickListener {
             val request = PregnantWomanUpdateRegistrationRequest()
             request.screeningId = viewModel.mPregnantWomanGetScreeningInfo?.screeningId.toString()
             request.userId = mPref.getValueLong(PrefKey.PREF_USER_ID, 0L).toString()
@@ -104,13 +104,16 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
             request.education = binding.tvEducationOfMother.text.toString()
             request.occupation = binding.tvOccupation.text.toString()
             request.isANMRegistered = 0
-            viewModel.mPregnantWomanGetScreeningInfo?.screeningId
-                ?.let { it1 ->
-                    viewModel.callPregnantWomanUpdateRegistrationApi(
-                        screeningId = it1,
-                        request = request
-                    )
-                }
+            viewModel.mPregnantWomanGetScreeningInfo?.screeningId?.let { it1 ->
+                viewModel.callPregnantWomanUpdateRegistrationApi(
+                    screeningId = it1,
+                    request = request
+                )
+            }
+        }
+
+        binding.btnSkipToNext.setOnClickListener {
+            navigateNext()
         }
     }
 
@@ -129,7 +132,7 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
                         hideProgressBar()
                         showSnackBar(it.response?.message)
 
-                        findNavController().navigate(R.id.action_pregnantWomanRegistrationFragment_to_pregnantWomanServicesFragment)
+                        navigateNext()
                     }
 
                     is ResponseHandler.OnFailed -> {
@@ -141,5 +144,9 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
                 }
             }
         }
+    }
+
+    private fun navigateNext() {
+        findNavController().navigate(R.id.action_pregnantWomanRegistrationFragment_to_pregnantWomanServicesFragment)
     }
 }

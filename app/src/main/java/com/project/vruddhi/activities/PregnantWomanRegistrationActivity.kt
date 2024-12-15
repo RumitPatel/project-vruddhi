@@ -34,7 +34,7 @@ class PregnantWomanRegistrationActivity : BaseActivity() {
     }
 
     private fun setListeners() {
-        binding.btnNext.setOnClickListener {
+        binding.btnSaveAndNext.setOnClickListener {
             startActivity(Intent(mContext, PregnantWomanServicesActivity::class.java))
         }
     }

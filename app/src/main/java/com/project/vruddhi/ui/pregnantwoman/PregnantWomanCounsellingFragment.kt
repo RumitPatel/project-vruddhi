@@ -107,7 +107,7 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
-        binding.btnNext.setOnClickListener {
+        binding.btnSaveAndNext.setOnClickListener {
             val request = PregnantWomanUpdateAndExitRequest()
             request.dODate = binding.etDateOfDelivery.text.toString()
             request.pODate = binding.etPlaceOfDelivery.text.toString()

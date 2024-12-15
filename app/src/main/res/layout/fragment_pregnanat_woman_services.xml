@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:animateLayoutChanges="true"
-            app:layout_constraintBottom_toTopOf="@+id/btnNext"
+            app:layout_constraintBottom_toTopOf="@+id/btnSaveAndNext"
             app:layout_constraintTop_toBottomOf="@+id/includeProgress">
 
             <LinearLayout
@@ -616,14 +616,26 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/btnNext"
+            android:id="@+id/btnSaveAndNext"
             style="@style/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_20sdp"
-            android:text="@string/next"
+            android:text="@string/save_and_next"
+            app:layout_constraintBottom_toTopOf="@id/btnSkipToNext" />
+
+        <Button
+
+            android:id="@+id/btnSkipToNext"
+            style="@style/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:text="@string/skip_to_next"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

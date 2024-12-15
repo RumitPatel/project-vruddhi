@@ -86,7 +86,7 @@ class PregnantWomanServicesFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
-        binding.btnNext.setOnClickListener {
+        binding.btnSaveAndNext.setOnClickListener {
 
             val list = ArrayList<PregnantWomanUpdateCounsellingRequest>()
 
@@ -148,6 +148,10 @@ class PregnantWomanServicesFragment : FragmentBase() {
                     list
                 )
             }
+        }
+
+        binding.btnSkipToNext.setOnClickListener {
+            navigateNext()
         }
 
         binding.tvScreening1.isSelected = false
@@ -294,7 +298,7 @@ class PregnantWomanServicesFragment : FragmentBase() {
 
                         showSnackBar(it.response?.message)
 
-                        findNavController().navigate(R.id.action_pregnantWomanServicesFragment_to_pregnantWomanUpdateCounsellingFragment)
+                        navigateNext()
                     }
 
                     is ResponseHandler.OnFailed -> {
@@ -306,5 +310,9 @@ class PregnantWomanServicesFragment : FragmentBase() {
                 }
             }
         }
+    }
+
+    private fun navigateNext() {
+        findNavController().navigate(R.id.action_pregnantWomanServicesFragment_to_pregnantWomanUpdateCounsellingFragment)
     }
 }

@@ -69,8 +69,8 @@
                     style="@style/editText1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/date_hint"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:hint="@string/date_hint"
                     android:inputType="date"
                     android:textSize="@dimen/form_text_size" />
 
@@ -137,9 +137,9 @@
                     android:id="@+id/tvLmp"
                     style="@style/editText1"
                     android:layout_width="match_parent"
-                    android:hint="@string/date_hint"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:hint="@string/date_hint"
                     android:inputType="date"
                     android:textSize="@dimen/form_text_size" />
 
@@ -213,14 +213,23 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btnNext"
+                    android:id="@+id/btnSaveAndNext"
+                    style="@style/btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/save_and_next" />
+
+                <Button
+                    android:id="@+id/btnSkipToNext"
                     style="@style/btn1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
-                    android:text="@string/next" />
+                    android:text="@string/skip_to_next" />
 
             </LinearLayout>
 

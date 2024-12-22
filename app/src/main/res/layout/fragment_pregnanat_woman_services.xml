@@ -41,7 +41,7 @@
                         android:background="@color/teal_200"
                         android:drawableEnd="@drawable/selector_arrow_dropdown"
                         android:padding="@dimen/_10sdp"
-                        android:text="@string/screening_1"
+                        android:text="@string/service_1"
                         android:textColor="@color/black"
                         android:textSize="@dimen/form_text_size"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -236,7 +236,7 @@
                         android:background="@color/teal_200"
                         android:drawableEnd="@drawable/selector_arrow_dropdown"
                         android:padding="@dimen/_10sdp"
-                        android:text="@string/screening_2"
+                        android:text="@string/service_2"
                         android:textColor="@color/black"
                         android:textSize="@dimen/form_text_size"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -431,7 +431,7 @@
                         android:background="@color/teal_200"
                         android:drawableEnd="@drawable/selector_arrow_dropdown"
                         android:padding="@dimen/_10sdp"
-                        android:text="@string/screening_3"
+                        android:text="@string/service_3"
                         android:textColor="@color/black"
                         android:textSize="@dimen/form_text_size"
                         app:layout_constraintTop_toTopOf="parent" />

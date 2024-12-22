@@ -97,9 +97,9 @@
     <string name="dark_dot">•</string>
     <string name="logout">Logout</string>
     <string name="logout_warning">Are you sure you want to logout?</string>
-    <string name="screening_1">Screening 1</string>
-    <string name="screening_2">Screening 2</string>
-    <string name="screening_3">Screening 3</string>
+    <string name="service_1">Service 1</string>
+    <string name="service_2">Service 2</string>
+    <string name="service_3">Service 3</string>
 
     <string name="temp_string">We have sent and email to abc@xyz.com with instructions to reset your password.</string>
     <string name="temp_string_2">Patient 1: Meenaben parmar</string>

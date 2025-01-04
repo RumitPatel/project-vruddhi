@@ -69,6 +69,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:hint="@string/date_hint"
                     android:inputType="date"
                     android:textSize="@dimen/form_text_size" />

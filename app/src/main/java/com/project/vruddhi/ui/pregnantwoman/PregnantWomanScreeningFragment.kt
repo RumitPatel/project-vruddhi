@@ -1,5 +1,6 @@
 package com.project.vruddhi.ui.pregnantwoman
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreening
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO_ID
 import com.project.vruddhi.utils.checkNullAndSet
+import java.util.Calendar
 
 /**
  * Pregnant Woman screening class
@@ -30,6 +32,9 @@ class PregnantWomanScreeningFragment : FragmentBase() {
     private val viewModel: PregnantWomanViewModel by activityViewModels()
 
     private var mPatientInfoId: Long? = null
+
+    private val mCalenderDob: Calendar = Calendar.getInstance()
+    private val mCalenderLmp: Calendar = Calendar.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -88,6 +93,42 @@ class PregnantWomanScreeningFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
+        binding.tvDob.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                requireActivity(),
+                { view, year, month, dayOfMonth ->
+                    binding.tvDob.setText("$dayOfMonth/${(month + 1)}/$year")
+
+                    mCalenderDob.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    mCalenderDob.set(Calendar.MONTH, month)
+                    mCalenderDob.set(Calendar.YEAR, year)
+                },
+                mCalenderDob.get(Calendar.YEAR),
+                mCalenderDob.get(Calendar.MONTH),
+                mCalenderDob.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+            datePickerDialog.show()
+        }
+
+        binding.tvLmp.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                requireActivity(),
+                { view, year, month, dayOfMonth ->
+                    binding.tvLmp.setText("$dayOfMonth/${(month + 1)}/$year")
+
+                    mCalenderLmp.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    mCalenderLmp.set(Calendar.MONTH, month)
+                    mCalenderLmp.set(Calendar.YEAR, year)
+                },
+                mCalenderLmp.get(Calendar.YEAR),
+                mCalenderLmp.get(Calendar.MONTH),
+                mCalenderLmp.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+            datePickerDialog.show()
+        }
+
         binding.btnSaveAndNext.setOnClickListener {
             val request = PregnantWomanScreeningUpdateRequest()
             request.age = binding.tvAge.text.toString().toInt()
@@ -183,4 +224,6 @@ class PregnantWomanScreeningFragment : FragmentBase() {
     private fun navigateNext() {
         findNavController().navigate(R.id.action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment)
     }
+
+
 }

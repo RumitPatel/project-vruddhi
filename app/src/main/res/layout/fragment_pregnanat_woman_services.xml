@@ -69,6 +69,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -85,6 +86,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -101,6 +103,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -264,6 +267,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -280,6 +284,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -296,6 +301,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -459,6 +465,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -475,6 +482,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView
@@ -491,6 +499,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/form_margin_top"
+                            android:inputType="numberDecimal"
                             android:textSize="@dimen/form_text_size" />
 
                         <TextView

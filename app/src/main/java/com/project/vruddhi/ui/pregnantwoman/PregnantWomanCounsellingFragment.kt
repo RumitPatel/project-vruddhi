@@ -1,9 +1,11 @@
 package com.project.vruddhi.ui.pregnantwoman
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -15,6 +17,8 @@ import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateAndExitRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 import com.project.vruddhi.utils.checkNullAndSet
+import java.util.Calendar
+
 
 /**
  * Pregnant Woman screening class
@@ -27,6 +31,7 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
     private var mView: View? = null
 
     private val viewModel: PregnantWomanViewModel by activityViewModels()
+    private val mCalender: Calendar = Calendar.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -107,6 +112,50 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
+        binding.etPlaceOfDelivery.setOnClickListener {
+            val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
+            alertDialogBuilder.setTitle(getString(R.string.select_place_of_delivery))
+            val types = arrayOf(
+                "Delivery place 1",
+                "Delivery place 2",
+                "Delivery place 3",
+                "Delivery place 4",
+                "Delivery place 5",
+                "Delivery place 6",
+                "Delivery place 7",
+                "Delivery place 8",
+                "Delivery place 9",
+                "Delivery place 10",
+                "Delivery place 11",
+                "Delivery place 12"
+            )
+            alertDialogBuilder.setItems(
+                types
+            ) { dialog, which ->
+                dialog.dismiss()
+
+                binding.etPlaceOfDelivery.setText(types[which])
+            }
+            alertDialogBuilder.show()
+        }
+
+        binding.etDateOfDelivery.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                requireActivity(),
+                { view, year, month, dayOfMonth ->
+                    binding.etDateOfDelivery.setText("$dayOfMonth/${(month + 1)}/$year")
+
+                    mCalender.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    mCalender.set(Calendar.MONTH, month)
+                    mCalender.set(Calendar.YEAR, year)
+                },
+                mCalender.get(Calendar.YEAR),
+                mCalender.get(Calendar.MONTH),
+                mCalender.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+            datePickerDialog.show()
+        }
         binding.btnSaveAndNext.setOnClickListener {
             val request = PregnantWomanUpdateAndExitRequest()
             request.dODate = binding.etDateOfDelivery.text.toString()

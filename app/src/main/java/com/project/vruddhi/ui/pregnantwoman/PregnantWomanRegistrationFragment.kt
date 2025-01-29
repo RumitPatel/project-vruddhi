@@ -1,6 +1,7 @@
 package com.project.vruddhi.ui.pregnantwoman
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -130,6 +131,28 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
         binding.btnSkipToNext.setOnClickListener {
             navigateNext()
         }
+
+
+        // Add listener to the RadioGroup to enable/disable tvIllnessNote
+        binding.rgAnyIllness.setOnCheckedChangeListener { _, checkedId ->
+            Log.d("RadioGroup", "Radio button changed: $checkedId")
+            when (checkedId) {
+                R.id.rbYesAnyIllness -> {
+                    // Enable the text box when 'Yes' is selected
+                    binding.tvIllnessNote.isEnabled = true
+                    binding.tvIllnessNote.hint = ""
+                }
+                R.id.rbNoAnyIllness -> {
+                    // Disable the text box when 'No' is selected
+                    binding.tvIllnessNote.isEnabled = false
+                    binding.tvIllnessNote.setText("") // Optionally clear the text
+                    binding.tvIllnessNote.hint = ""   // Optionally remove the hint
+                }
+            }
+        }
+
+
+
     }
 
     /**

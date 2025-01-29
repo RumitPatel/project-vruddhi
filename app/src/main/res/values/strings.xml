@@ -68,7 +68,7 @@
     <string name="MODInstrumentation">Instrumentation</string>
     <string name="current_weight_in_kg">Current Weight in kg</string>
     <string name="current_height_in_cm">Current Height in cm</string>
-    <string name="hemoglobin_level_in_cm">Hemoglobin level in cm</string>
+    <string name="hemoglobin_level_in_cm">Hemoglobin level in mg/dl</string>
     <string name="counselling_details">Counselling Details</string>
     <string name="nutrition_kit_given">Nutrition Kit given</string>
     <string name="hand_washing_soap_given">Hand-washing soap given</string>

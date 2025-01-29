@@ -103,7 +103,7 @@ class PregnantWomanListFragment : FragmentBase() {
         val pregnantWomen = ArrayList<PregnantWomanListResponse>()
 
         for (item in mPregnantWomen) {
-            if (item.womenName?.lowercase()?.contains(text.lowercase()) == true) {
+            if ((item.womenName?.lowercase()?.contains(text.lowercase()) == true) or (item.village?.lowercase()?.contains(text.lowercase()) == true )  or (item.status?.lowercase()?.contains(text.lowercase()) == true ) ) {
                 pregnantWomen.add(item)
             }
         }

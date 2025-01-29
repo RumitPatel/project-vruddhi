@@ -1,6 +1,7 @@
 package com.project.vruddhi.ui.pregnantwoman
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -192,6 +193,30 @@ class PregnantWomanServicesFragment : FragmentBase() {
                 binding.llScreening3.visibility = View.VISIBLE
             }
         }
+
+
+        // Add listener to the RadioGroup to enable/disable tvIllnessNote
+        binding.rgAnyIllness1.setOnCheckedChangeListener { _, checkedId ->
+            Log.d("RadioGroup", "Radio button changed: $checkedId")
+            when (checkedId) {
+                R.id.rbYesAnyIllness1 -> {
+                    // Enable the text box when 'Yes' is selected
+                    binding.tvComplicationNote.isEnabled = true
+                    binding.tvComplicationNote.hint = ""
+                }
+                R.id.rbNoAnyIllness1 -> {
+                    // Disable the text box when 'No' is selected
+                    binding.tvComplicationNote.isEnabled = false
+                    binding.tvComplicationNote.setText("") // Optionally clear the text
+
+                    binding.tvComplicationNote.hint = ""   // Optionally remove the hint
+                }
+            }
+        }
+
+
+
+
     }
 
     /**

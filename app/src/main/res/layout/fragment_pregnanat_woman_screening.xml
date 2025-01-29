@@ -96,6 +96,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
+                    android:text="@string/Address"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/form_text_size" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/tvAddress"
+                    style="@style/editText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
+                    android:inputType="textCapSentences"
+                    android:textSize="@dimen/form_text_size" />
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/form_margin_top"
                     android:text="@string/village"
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
@@ -177,7 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -203,7 +223,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView

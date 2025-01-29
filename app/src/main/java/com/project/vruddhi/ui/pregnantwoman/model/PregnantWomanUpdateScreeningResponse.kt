@@ -16,6 +16,10 @@ data class PregnantWomanUpdateScreeningResponse(
     @field:SerializedName("village")
     val village: String? = null,
 
+    @field:SerializedName("address")
+    val address: String? = null,
+
+
     @field:SerializedName("age")
     val age: Int? = null
 )

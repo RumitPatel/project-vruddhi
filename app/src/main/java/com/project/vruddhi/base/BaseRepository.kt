@@ -295,10 +295,11 @@ open class BaseRepository {
                 )
             }
         } else {
+
             ResponseHandler.OnFailed(
                 HttpErrorCode.NOT_DEFINED.code,
                 Constants.NO_INTERNET,
-                ""
+                bodyString.toString()
             )
         }
     }

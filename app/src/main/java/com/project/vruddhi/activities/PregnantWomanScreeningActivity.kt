@@ -33,7 +33,14 @@ class PregnantWomanScreeningActivity : BaseActivity() {
     private fun setListeners() {
 
         binding.btnSaveAndNext.setOnClickListener {
-            startActivity(Intent(mContext, PregnantWomanRegistrationActivity::class.java))
+            //startActivity(Intent(mContext, PregnantWomanRegistrationActivity::class.java))
+            startActivity(
+                Intent(
+                    mContext,
+                    HomeActivity::class.java
+                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            )
+
         }
     }
 

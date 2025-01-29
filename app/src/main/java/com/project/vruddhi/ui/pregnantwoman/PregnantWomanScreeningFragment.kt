@@ -17,6 +17,8 @@ import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanScreening
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 import com.project.vruddhi.utils.Constants.PREGNANT_WOMAN_PATIENT_INFO_ID
 import com.project.vruddhi.utils.checkNullAndSet
+import java.text.SimpleDateFormat
+import java.util.Locale
 import java.util.Calendar
 
 /**
@@ -97,11 +99,18 @@ class PregnantWomanScreeningFragment : FragmentBase() {
             val datePickerDialog = DatePickerDialog(
                 requireActivity(),
                 { view, year, month, dayOfMonth ->
-                    binding.tvDob.setText("$dayOfMonth/${(month + 1)}/$year")
+                    //binding.tvDob.setText("$dayOfMonth/${(month + 1)}/$year")
 
                     mCalenderDob.set(Calendar.DAY_OF_MONTH, dayOfMonth)
                     mCalenderDob.set(Calendar.MONTH, month)
                     mCalenderDob.set(Calendar.YEAR, year)
+
+                    // Format the date
+                    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // Change format as needed
+                    val formattedDate = dateFormat.format(mCalenderDob.time)
+
+                    binding.tvDob.setText(formattedDate) // Set formatted date
+
                 },
                 mCalenderDob.get(Calendar.YEAR),
                 mCalenderDob.get(Calendar.MONTH),
@@ -120,6 +129,13 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                     mCalenderLmp.set(Calendar.DAY_OF_MONTH, dayOfMonth)
                     mCalenderLmp.set(Calendar.MONTH, month)
                     mCalenderLmp.set(Calendar.YEAR, year)
+
+                    // Format the date
+                    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // Change format as needed
+                    val formattedDate = dateFormat.format(mCalenderLmp.time)
+
+                    binding.tvLmp.setText(formattedDate) // Set formatted date
+
                 },
                 mCalenderLmp.get(Calendar.YEAR),
                 mCalenderLmp.get(Calendar.MONTH),
@@ -136,7 +152,8 @@ class PregnantWomanScreeningFragment : FragmentBase() {
             request.height = binding.tvHeight.text.toString()
             request.weight = binding.tvWeight.text.toString()
             request.mobile = binding.tvPhoneNo.text.toString()
-            request.address = binding.tvVillage.text.toString()
+            request.address = binding.tvAddress.text.toString()
+            request.village = binding.tvVillage.text.toString()
             request.currentMonthOfPregnancy =
                 binding.tvCurrentPregnancyMonth.text.toString().toInt()
             request.dateOfLMP = binding.tvLmp.text.toString()
@@ -170,7 +187,8 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                     is ResponseHandler.OnSuccessResponse -> {
                         hideProgressBar()
                         showSnackBar(it.response?.message)
-                        navigateNext()
+                        //navigateNext()
+                        navigateToList()
                     }
 
                     is ResponseHandler.OnFailed -> {
@@ -201,6 +219,7 @@ class PregnantWomanScreeningFragment : FragmentBase() {
                                 binding.tvDob.checkNullAndSet(data.dob)
                                 binding.tvAge.checkNullAndSet(data.age.toString())
                                 binding.tvVillage.checkNullAndSet(data.village)
+                                binding.tvAddress.checkNullAndSet(data.address)
                                 binding.tvPhoneNo.checkNullAndSet(data.mobile)
                                 binding.tvLmp.checkNullAndSet(data.dateOfLMP)
                                 binding.tvCurrentPregnancyMonth.checkNullAndSet(data.currentMonthOfPregnancy.toString())
@@ -224,6 +243,10 @@ class PregnantWomanScreeningFragment : FragmentBase() {
     private fun navigateNext() {
         findNavController().navigate(R.id.action_pregnantWomanScreeningFragment_to_pregnantWomanRegistrationFragment)
     }
+
+private fun navigateToList(){
+    findNavController().navigate(R.id.action_pregnantWomanScreeningFragment_to_pregnantWomanListFragment)
+}
 
 
 }

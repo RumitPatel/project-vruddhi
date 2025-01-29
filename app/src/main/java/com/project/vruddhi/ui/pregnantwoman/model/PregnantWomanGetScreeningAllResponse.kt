@@ -22,12 +22,14 @@ data class PregnantWomanGetScreeningAllResponse(
     val dODate: String? = null, // 2024-10-12 00:00:00
     @SerializedName("date_of_LMP")
     val dateOfLMP: String? = null, // 2024-10-12
+    @SerializedName("is_mother_death")
+    var isMotherDeath: Int? = null, // 1
     @SerializedName("death_reason")
     val deathReason: String? = null, // death reason
     @SerializedName("dob")
     val dob: String? = null, // 1979-07-11
     @SerializedName("duration_of_pregnancy")
-    val durationOfPregnancy: Int? = null, // 3
+    val durationOfPregnancy: String? = null, // 3
     @SerializedName("education")
     val education: String? = null,
     @SerializedName("height")
@@ -42,6 +44,8 @@ data class PregnantWomanGetScreeningAllResponse(
     val illness: String? = null,
     @SerializedName("is_ANM_registered")
     val isANMRegistered: Int? = null, // 0
+    @SerializedName("is_any_illness")
+    val isAnyIllness: Int? = null, // 0
     @SerializedName("is_anaemia_counselled")
     val isAnaemiaCounselled: Int? = null, // 0
     @SerializedName("is_delivery")
@@ -60,12 +64,14 @@ data class PregnantWomanGetScreeningAllResponse(
     val isNutritionKitGiven: Int? = null, // 0
     @SerializedName("is_soap_given")
     val isSoapGiven: Int? = null, // 0
-    @SerializedName("m_o_date")
-    val mODate: String? = null, // 2024-10-12 00:00:00
+    @SerializedName("mode_of_delivery")
+    val modeOfDelivery: String? = null, // 2024-10-12 00:00:00
     @SerializedName("migrated_village")
     val migratedVillage: String? = null, // Sargasan
     @SerializedName("mobile")
     val mobile: String? = null, // 8878788788
+    @SerializedName("isMotherComplications")
+    var isMotherComplications:Int? = null, // 1
     @SerializedName("mother_complications")
     val motherComplications: String? = null, // mother complications
     @SerializedName("no_of_abortion")
@@ -76,8 +82,8 @@ data class PregnantWomanGetScreeningAllResponse(
     val noOfPregnancy: Int? = null, // 0
     @SerializedName("occupation")
     val occupation: String? = null,
-    @SerializedName("p_o_date")
-    val pODate: String? = null, // 2024-10-12 00:00:00
+    @SerializedName("place_of_delivery")
+    val placeOfDelivery : String? = null, // 2024-10-12 00:00:00
     @SerializedName("photo")
     val photo: String? = null, // base64-encoded-image-data
     @SerializedName("registration_date")

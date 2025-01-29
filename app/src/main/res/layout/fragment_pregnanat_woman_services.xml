@@ -182,6 +182,7 @@
                             android:textSize="@dimen/form_text_size" />
 
                         <RadioGroup
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/radio_group_margin_top"
@@ -190,14 +191,14 @@
                             android:padding="@dimen/radio_group_padding">
 
                             <RadioButton
-                                android:id="@+id/rbYesAnyIllness"
+                                android:id="@+id/rbYesAnyIllness1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/yes" />
 
                             <RadioButton
-                                android:id="@+id/rbNoAnyIllness"
+                                android:id="@+id/rbNoAnyIllness1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

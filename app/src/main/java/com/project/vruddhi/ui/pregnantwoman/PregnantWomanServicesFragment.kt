@@ -298,7 +298,8 @@ class PregnantWomanServicesFragment : FragmentBase() {
 
                         showSnackBar(it.response?.message)
 
-                        navigateNext()
+                        //navigateNext()
+                        navigateToList()
                     }
 
                     is ResponseHandler.OnFailed -> {
@@ -315,4 +316,11 @@ class PregnantWomanServicesFragment : FragmentBase() {
     private fun navigateNext() {
         findNavController().navigate(R.id.action_pregnantWomanServicesFragment_to_pregnantWomanUpdateCounsellingFragment)
     }
+
+
+    private fun navigateToList(){
+        findNavController().navigate(R.id.action_pregnantWomanServicesFragment_to_pregnantWomanListFragment)
+    }
+
+
 }

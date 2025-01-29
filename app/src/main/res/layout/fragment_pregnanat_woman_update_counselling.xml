@@ -104,23 +104,42 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbNutritionKitGiven"
-                    android:layout_width="wrap_content"
+                <RadioGroup
+                    android:id="@+id/rgModeOfDelivery"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/normal" />
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbHandWashingSoapGiven"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cesarean" />
+                    <RadioButton
+                        android:id="@+id/rbMODNormal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/MODNormal" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbCounselledAboutDietDuringPregnancy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/instrumentation" />
+                    <RadioButton
+                        android:id="@+id/rbMODCesarean"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/MODCesarean" />
+
+                    <RadioButton
+                        android:id="@+id/rbMODInstrumentation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/MODInstrumentation" />
+
+
+                </RadioGroup>
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,17 +149,33 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/form_text_size" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbPreTerm"
-                    android:layout_width="wrap_content"
+                <RadioGroup
+                    android:id="@+id/rgDuration"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/preterm" />
+                    android:layout_marginTop="@dimen/radio_group_margin_top"
+                    android:background="@drawable/edittext_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/radio_group_padding">
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbFullTerm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/full_term" />
+                    <RadioButton
+                        android:id="@+id/rbDuratoinPreTerm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/preterm" />
+
+                    <RadioButton
+                        android:id="@+id/rbDuratoinFulTerm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/full_term" />
+
+
+                </RadioGroup>
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -156,7 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_margin_top"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textSize="@dimen/form_text_size" />
 
                 <TextView
@@ -176,12 +211,14 @@
                     android:padding="@dimen/radio_group_padding">
 
                     <RadioButton
+                        android:id="@+id/rdYesComplicationMother"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/yes" />
 
                     <RadioButton
+                        android:id="@+id/rdNoComplicationMother"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -223,12 +260,14 @@
                     android:padding="@dimen/radio_group_padding">
 
                     <RadioButton
+                        android:id="@+id/rdButtonYesMigraionWithin"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/yes" />
 
                     <RadioButton
+                        android:id="@+id/rdButtonNoMigraionWithin"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -270,12 +309,14 @@
                     android:padding="@dimen/radio_group_padding">
 
                     <RadioButton
+                        android:id="@+id/rdYesMisscarriage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/yes" />
 
                     <RadioButton
+                        android:id="@+id/rdNoMisscarriage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

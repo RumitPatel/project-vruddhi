@@ -68,6 +68,12 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
             binding.tvNoOfAbortion.checkNullAndSet(noOfAbortion.toString())
             binding.tvEducationOfMother.checkNullAndSet(education.toString())
             binding.tvOccupation.checkNullAndSet(occupation.toString())
+            binding.tvIllnessNote.checkNullAndSet(illness.toString())
+            binding.rbYesRegisteredForHospital.isChecked =
+                if(isANMRegistered==1) true else false
+            binding.rbYesAnyIllness.isChecked =
+                if(isAnyIllness==1) true else false
+
 
         }
     }
@@ -96,14 +102,23 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
         binding.btnSaveAndNext.setOnClickListener {
             val request = PregnantWomanUpdateRegistrationRequest()
             request.screeningId = viewModel.mPregnantWomanGetScreeningInfo?.screeningId.toString()
-            request.userId = mPref.getValueLong(PrefKey.PREF_USER_ID, 0L).toString()
-            request.illness = binding.tvIllnessNote.text.toString()
-            request.noOfAbortion = binding.tvNoOfAbortion.text.toString()
             request.noOfPregnancy = binding.tvNoOfPregnancy.text.toString()
             request.noOfLiveChildren = binding.tvNoOfChild.text.toString()
+            request.noOfAbortion = binding.tvNoOfAbortion.text.toString()
             request.education = binding.tvEducationOfMother.text.toString()
             request.occupation = binding.tvOccupation.text.toString()
-            request.isANMRegistered = 0
+            request.illness = binding.tvIllnessNote.text.toString()
+            if(binding.rbYesRegisteredForHospital.isChecked)
+                request.isANMRegistered = 1
+            else
+                request.isANMRegistered =0
+
+            if(binding.rbYesAnyIllness.isChecked)
+                request.is_any_illness = 1
+            else
+                request.is_any_illness =0
+
+            request.userId = mPref.getValueLong(PrefKey.PREF_USER_ID, 0L).toString()
             viewModel.mPregnantWomanGetScreeningInfo?.screeningId?.let { it1 ->
                 viewModel.callPregnantWomanUpdateRegistrationApi(
                     screeningId = it1,
@@ -132,7 +147,8 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
                         hideProgressBar()
                         showSnackBar(it.response?.message)
 
-                        navigateNext()
+                        //navigateNext()
+                        navigateToList()
                     }
 
                     is ResponseHandler.OnFailed -> {
@@ -149,4 +165,10 @@ class PregnantWomanRegistrationFragment : FragmentBase() {
     private fun navigateNext() {
         findNavController().navigate(R.id.action_pregnantWomanRegistrationFragment_to_pregnantWomanServicesFragment)
     }
+
+
+    private fun navigateToList(){
+        findNavController().navigate(R.id.action_pregnantWomanRegistrationFragment_to_pregnantWomanListFragment)
+    }
+
 }

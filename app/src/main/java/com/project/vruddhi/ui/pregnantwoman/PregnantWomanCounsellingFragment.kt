@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.collection.emptyLongSet
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -17,7 +18,9 @@ import com.project.vruddhi.network.ResponseHandler
 import com.project.vruddhi.ui.pregnantwoman.model.request.PregnantWomanUpdateAndExitRequest
 import com.project.vruddhi.ui.pregnantwoman.viewmodel.PregnantWomanViewModel
 import com.project.vruddhi.utils.checkNullAndSet
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 
 /**
@@ -61,20 +64,56 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
     }
 
     private fun setPatientData() {
+        binding.rbDeliveryOfChildYes.isChecked =
+            if (viewModel.mPregnantWomanGetScreeningInfo?.isDelivery == 1) true else false
         binding.etDateOfDelivery.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.dODate)
-        binding.etPlaceOfDelivery.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.pODate)
-        binding.cbNutritionKitGiven.isChecked =
-            if (viewModel.mPregnantWomanGetScreeningInfo?.isNutritionKitGiven == 1) true else false
-        binding.cbHandWashingSoapGiven.isChecked =
-            if (viewModel.mPregnantWomanGetScreeningInfo?.isSoapGiven == 1) true else false
-        binding.cbCounselledAboutDietDuringPregnancy.isChecked =
-            if (viewModel.mPregnantWomanGetScreeningInfo?.isDietCounselled == 1) true else false
+        binding.etPlaceOfDelivery.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.placeOfDelivery)
+        if(viewModel.mPregnantWomanGetScreeningInfo?.modeOfDelivery == "Normal")
+            binding.rbMODNormal.isChecked = true;
+        if(viewModel.mPregnantWomanGetScreeningInfo?.modeOfDelivery == "Cesarean")
+            binding.rbMODCesarean.isChecked = true;
+        if(viewModel.mPregnantWomanGetScreeningInfo?.modeOfDelivery == "Instrumentation")
+            binding.rbMODInstrumentation.isChecked = true;
+
+        if(viewModel.mPregnantWomanGetScreeningInfo?.durationOfPregnancy == "Preterm")
+            binding.rbDuratoinPreTerm.isChecked = true;
+        if(viewModel.mPregnantWomanGetScreeningInfo?.durationOfPregnancy == "Fullterm")
+            binding.rbDuratoinFulTerm.isChecked = true;
+
         //binding.cbPreTerm.isChecked = if (viewModel.mPregnantWomanGetScreeningInfo?.ist == 1) true else false
 
         binding.etBirthWeight.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.birthWeight.toString())
-        binding.etNameOfVillage.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.village.toString())
-        binding.etReasonOfDeath.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.deathReason.toString())
         //binding.rbDeathOfMotherYes.isChecked = if (viewModel.mPregnantWomanGetScreeningInfo.mo)
+
+        if(viewModel.mPregnantWomanGetScreeningInfo?.isMotherComplications == 1)
+            binding.rdYesComplicationMother.isChecked = true
+        if(viewModel.mPregnantWomanGetScreeningInfo?.isMotherComplications == 0)
+            binding.rdNoComplicationMother.isChecked = true
+
+        binding.etComplication.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.motherComplications.toString())
+
+
+        if(viewModel.mPregnantWomanGetScreeningInfo?.isMigratedArea == 1)
+            binding.rdButtonYesMigraionWithin.isChecked = true
+        if(viewModel.mPregnantWomanGetScreeningInfo?.isMigratedArea == 0)
+            binding.rdButtonNoMigraionWithin.isChecked = true
+
+        binding.etNameOfVillage.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.migratedVillage.toString())
+
+        if(viewModel.mPregnantWomanGetScreeningInfo?.isMiscarriage == 1)
+            binding.rdYesMisscarriage.isChecked = true
+        if(viewModel.mPregnantWomanGetScreeningInfo?.isMiscarriage == 0)
+            binding.rdNoMisscarriage.isChecked = true
+
+
+        if(viewModel.mPregnantWomanGetScreeningInfo?.isMotherDeath == 1)
+            binding.rbDeathOfMotherYes.isChecked = true
+        else
+            binding.rbDeathOfMotherNo.isChecked = true
+
+        binding.etReasonOfDeath.checkNullAndSet(viewModel.mPregnantWomanGetScreeningInfo?.deathReason.toString())
+
+
     }
 
     private fun setScreeningProgressBar() {
@@ -112,23 +151,11 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
      * Method to set click listener
      */
     private fun setListeners() {
+
         binding.etPlaceOfDelivery.setOnClickListener {
             val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
             alertDialogBuilder.setTitle(getString(R.string.select_place_of_delivery))
-            val types = arrayOf(
-                "Delivery place 1",
-                "Delivery place 2",
-                "Delivery place 3",
-                "Delivery place 4",
-                "Delivery place 5",
-                "Delivery place 6",
-                "Delivery place 7",
-                "Delivery place 8",
-                "Delivery place 9",
-                "Delivery place 10",
-                "Delivery place 11",
-                "Delivery place 12"
-            )
+            val types = resources.getStringArray(R.array.DiliverySpace)
             alertDialogBuilder.setItems(
                 types
             ) { dialog, which ->
@@ -148,6 +175,12 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
                     mCalender.set(Calendar.DAY_OF_MONTH, dayOfMonth)
                     mCalender.set(Calendar.MONTH, month)
                     mCalender.set(Calendar.YEAR, year)
+
+                    // Format the date
+                    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // Change format as needed
+                    val formattedDate = dateFormat.format(mCalender.time)
+
+                    binding.etDateOfDelivery.setText(formattedDate) // Set formatted date
                 },
                 mCalender.get(Calendar.YEAR),
                 mCalender.get(Calendar.MONTH),
@@ -158,14 +191,47 @@ class PregnantWomanCounsellingFragment : FragmentBase() {
         }
         binding.btnSaveAndNext.setOnClickListener {
             val request = PregnantWomanUpdateAndExitRequest()
-            request.dODate = binding.etDateOfDelivery.text.toString()
-            request.pODate = binding.etPlaceOfDelivery.text.toString()
-            request.birthWeight = binding.etBirthWeight.text.toString()
-            request.deathReason = binding.etReasonOfDeath.text.toString()
-            request.motherComplications = binding.etComplication.text.toString()
-            request.migratedVillage = binding.etNameOfVillage.text.toString()
             request.isDelivery =
                 if (binding.rbDeliveryOfChildYes.isChecked) 1 else if (binding.rbDeliveryOfChildNo.isChecked) 0 else 0
+            request.dODate = binding.etDateOfDelivery.text.toString()
+            request.placeOfDelivery = binding.etPlaceOfDelivery.text.toString()
+            if(binding.rbMODNormal.isChecked == true )
+                request.modeOfDelivery = "Normal"
+            if(binding.rbMODCesarean.isChecked == true )
+                request.modeOfDelivery = "Cesarean"
+            if(binding.rbMODInstrumentation.isChecked == true )
+                request.modeOfDelivery = "Instrumentation"
+
+            if(binding.rbDuratoinPreTerm.isChecked == true)
+                request.durationOfPregnancy = "Preterm"
+            if(binding.rbDuratoinFulTerm.isChecked == true)
+                request.durationOfPregnancy = "Fullterm"
+
+
+            request.birthWeight = binding.etBirthWeight.text.toString()
+            if(binding.rdYesComplicationMother.isChecked == true)
+                request.isMotherComplications  = 1
+            if(binding.rdNoComplicationMother.isChecked == true)
+                request.isMotherComplications  = 0
+            request.motherComplications = binding.etComplication.text.toString()
+
+            if(binding.rdButtonYesMigraionWithin.isChecked == true)
+                request.isMigratedArea =1
+            else
+                request.isMigratedArea =0
+
+            request.migratedVillage = binding.etNameOfVillage.text.toString()
+
+            if(binding.rdYesMisscarriage.isChecked == true)
+                request.isMiscarriage = 1
+            else
+                request.isMiscarriage =0
+
+            if(binding.rbDeathOfMotherYes.isChecked == true)
+                request.isMotherDeath = 1
+            else
+                request.isMotherDeath = 0
+            request.deathReason = binding.etReasonOfDeath.text.toString()
 
             viewModel.mPregnantWomanGetScreeningInfo?.screeningId?.let {
                 viewModel.callPregnantWomanUpdateAndExitApi(

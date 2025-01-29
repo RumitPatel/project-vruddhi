@@ -9,6 +9,8 @@ data class PregnantWomanUpdateRegistrationRequest(
     var illness: String? = null, // tb
     @SerializedName("is_ANM_registered")
     var isANMRegistered: Int? = null, // 1
+    @SerializedName("is_any_illness")
+    var is_any_illness: Int? = null, // 1
     @SerializedName("no_of_abortion")
     var noOfAbortion: String? = null, // 5
     @SerializedName("no_of_live_children")
@@ -21,4 +23,7 @@ data class PregnantWomanUpdateRegistrationRequest(
     var screeningId: String? = null, // 101
     @SerializedName("user_id")
     var userId: String? = null // 202
+
+
+
 )
